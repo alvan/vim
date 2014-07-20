@@ -298,7 +298,7 @@ au FileType go compiler go
 "
 au Filetype php setlocal mps-=<:>
 au BufNewFile,Bufread *.php setlocal mps-=<:>
-au BufNewFile,Bufread *.php,*.phtml setlocal dictionary+=$VIMDIR/lst/php.lst.txt
+au BufNewFile,Bufread *.php,*.phtml setlocal dictionary+=$VIMDIR/dicts/php.txt
 
 hi link phpheredoc string
 
@@ -323,7 +323,7 @@ au BufNewFile,Bufread *.html,*.xhtml,*.phtml,*.shtml source $VIMDIR/scripts/clos
 " --------------------------------------------------------------------
 " JS
 "
-au BufNewFile,Bufread *.js,*.html,*.xhtml,*.phtml,*.shtml setlocal dictionary+=$VIMDIR/lst/js.lst.txt
+au BufNewFile,Bufread *.js,*.html,*.xhtml,*.phtml,*.shtml setlocal dictionary+=$VIMDIR/dicts/js.txt
 
 " --------------------------------------------------------------------
 " *
