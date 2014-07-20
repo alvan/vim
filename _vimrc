@@ -119,14 +119,6 @@ set nowrap
 set guioptions+=b
 set guioptions+=m
 set guioptions-=T
-map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
-            \set guioptions-=T <Bar>
-            \set guioptions+=m <Bar>
-            \else <Bar>
-            \set guioptions+=T <Bar>
-            \set guioptions+=m <Bar>
-            \endif<CR>
-
 set guitablabel=[%N]\ %t\ %M
 
 set bsdir=buffer
@@ -170,8 +162,6 @@ set showmatch
 set mat=2
 
 set hls
-:vnoremap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-:vnoremap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 set incsearch
 
 set expandtab
@@ -210,6 +200,17 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
+noremap <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
+            \set guioptions-=T <Bar>
+            \set guioptions+=m <Bar>
+            \else <Bar>
+            \set guioptions+=T <Bar>
+            \set guioptions+=m <Bar>
+            \endif<CR>
+
+vnoremap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vnoremap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+
 nmap <silent> ;m <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>
 
 inoremap " ""<ESC>i
@@ -229,6 +230,11 @@ vnoremap <silent> <C-l> y:call system('xdg-open '.shellescape(@@=~'^\s*\(http\\|
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
+
+nmap <leader>wh :NERDTreeToggle<CR>
+nmap <leader>wk :MBEToggle<CR>
+nmap <leader>wl :TagbarToggle<CR>
+nmap <leader>wm <leader>wl<leader>wh
 
 " --------------------------------------------------------------------
 " Plugin Manager
@@ -275,7 +281,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " --------------------------------------------------------------------
-" File Type Based Config
+" File Type Based Configs
 " --------------------------------------------------------------------
 " Go
 "
@@ -334,7 +340,7 @@ else
 endif
 
 " --------------------------------------------------------------------
-" Plugin Config
+" Plugin Configs
 " --------------------------------------------------------------------
 let g:snips_author = g:user
 
@@ -404,15 +410,6 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-
-nmap <leader>wh :NERDTreeToggle<CR>
-nmap <leader>wk :MBEToggle<CR>
-nmap <leader>wl :TagbarToggle<CR>
-nmap <leader>wm <leader>wl<leader>wh
-
-inoremap <leader>pd <ESC>:call PhpDocSingle()<CR>i
-nnoremap <leader>pd :call PhpDocSingle()<CR>
-vnoremap <leader>pd :call PhpDocRange()<CR>
 
 let g:js_indent_log = 0
 
