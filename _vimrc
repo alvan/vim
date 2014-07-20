@@ -413,6 +413,9 @@ let g:tagbar_type_go = {
 
 let g:js_indent_log = 0
 
+" xml.vim
+let g:xml_use_xhtml = 0
+
 " Enable ShowMarks
 let g:showmarks_enable = 1
 " Show which marks
@@ -431,9 +434,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " Supertab
 " let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" xml.vim
-let g:xml_use_xhtml = 1
 
 " Indexer
 let g:indexer_tagsDirname = $HOME.'/.vim_indexer_tags'
