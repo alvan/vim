@@ -21,49 +21,6 @@ else
     let $VIMDIR = $VIM."/vimfiles"
 endif
 
-if has('mouse')
-    set mouse=a
-endif
-set clipboard+=unnamed
-
-set t_Co=256
-
-set noeb
-set novb
-set vb t_vb=
-
-set confirm
-
-" set langmenu=zh_CN.UTF-8
-" language messages zh_CN.utf-8
-" source $VIMRUNTIME/delmenu.vim
-" source $VIMRUNTIME/menu.vim
-
-set guioptions+=m
-set guioptions-=T
-map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
-            \set guioptions-=T <Bar>
-            \set guioptions+=m <Bar>
-            \else <Bar>
-            \set guioptions+=T <Bar>
-            \set guioptions+=m <Bar>
-            \endif<CR>
-
-set guitablabel=[%N]\ %t\ %M
-
-set bsdir=buffer
-set autochdir
-
-set history=100
-set hid
-
-set helplang=cn
-set enc=utf-8
-set fenc=utf-8
-set fencs=ucs-bom,utf-8,cp936,gb18030,gbk,gb2312
-
-" set bin
-
 " --------------------------------------------------------------------
 " Func
 " --------------------------------------------------------------------
@@ -142,8 +99,49 @@ endf
 " --------------------------------------------------------------------
 " Mode
 " --------------------------------------------------------------------
-set background=dark
+if has('mouse')
+    set mouse=a
+endif
+set clipboard+=unnamed
 
+set noeb
+set novb
+set vb t_vb=
+
+set confirm
+
+" set langmenu=zh_CN.UTF-8
+" language messages zh_CN.utf-8
+" source $VIMRUNTIME/delmenu.vim
+" source $VIMRUNTIME/menu.vim
+
+set nowrap
+set guioptions+=b
+set guioptions+=m
+set guioptions-=T
+map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
+            \set guioptions-=T <Bar>
+            \set guioptions+=m <Bar>
+            \else <Bar>
+            \set guioptions+=T <Bar>
+            \set guioptions+=m <Bar>
+            \endif<CR>
+
+set guitablabel=[%N]\ %t\ %M
+
+set bsdir=buffer
+set autochdir
+
+set history=100
+set hid
+
+set enc=utf-8
+set fenc=utf-8
+set fencs=ucs-bom,utf-8,cp936,gb18030,gbk,gb2312
+" set bin
+
+set t_Co=256
+set background=dark
 if has("unix")
     set guifont=YaHei\ Mono\ 10
 else
@@ -159,12 +157,6 @@ set showcmd
 set nosmd
 
 set shortmess=atI
-
-if has("gui_running") && bufname("%") !~? ".*\.txt$"
-    set nowrap
-    set guioptions+=b
-endif
-
 set scrolloff=5
 
 set nu!
@@ -288,12 +280,12 @@ filetype plugin indent on    " required
 " Go
 "
 let g:gofmt_command = "goimports"
+" let g:godef_split=0
+let g:godef_same_file_in_same_window=1
+
 au BufWritePre *.go :Fmt
 " au FileType go setlocal formatoptions=cqra1 tw=80 ai nofoldenable
 au FileType go compiler go
-
-" let g:godef_split=0
-let g:godef_same_file_in_same_window=1
 "
 " --------------------------------------------------------------------
 " PHP
@@ -328,11 +320,6 @@ au BufNewFile,Bufread *.html,*.xhtml,*.phtml,*.shtml source $VIMDIR/scripts/clos
 au BufNewFile,Bufread *.js,*.html,*.xhtml,*.phtml,*.shtml setlocal dictionary+=$VIMDIR/lst/js.lst.txt
 
 " --------------------------------------------------------------------
-" TXT
-"
-au BufRead *.txt set tw=78
-
-" --------------------------------------------------------------------
 " *
 syntax on
 
@@ -345,9 +332,6 @@ if has('gui_running')
 else
     colorscheme calmar256
 endif
-
-" au BufRead,BufNewFile * setfiletype txt
-
 
 " --------------------------------------------------------------------
 " Plugin Config
@@ -482,9 +466,9 @@ let g:ctrlp_prompt_mappings = {
             \ }
 
 " Airline
-" let g:airline_theme= 'lucius'
+let g:airline_theme= 'lucius'
+" let g:airline_theme= 'zenburn'
 " let g:airline_theme= 'solarized'
-let g:airline_theme= 'zenburn'
 let g:airline_powerline_fonts = 1
 let g:airline_mode_map = {
             \ '__' : '-',
