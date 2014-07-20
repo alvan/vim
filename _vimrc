@@ -435,11 +435,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " xml.vim
 let g:xml_use_xhtml = 1
 
-if has("unix")
-    let g:indexer_indexerListFilename = $HOME.'/.vim_indexer'
-else
-    let g:indexer_indexerListFilename = $VIM.'/_vim_indexer'
-endif
+" Indexer
+let g:indexer_tagsDirname = $HOME.'/.vim_indexer_tags'
+let g:indexer_indexerListFilename = $VIMDIR.'/indexer.conf'
 let g:indexer_changeCurDirIfVimprjFound = 0
 " let g:indexer_ctagsJustAppendTagsAtFileSave = 1
 " let g:indexer_debugLogLevel = 3
