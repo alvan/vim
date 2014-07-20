@@ -33,11 +33,11 @@ set novb
 set vb t_vb=
 
 set confirm
-set langmenu=zh_CN.UTF-8
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
 
-language messages zh_CN.utf-8
+" set langmenu=zh_CN.UTF-8
+" language messages zh_CN.utf-8
+" source $VIMRUNTIME/delmenu.vim
+" source $VIMRUNTIME/menu.vim
 
 set guioptions+=m
 set guioptions-=T
