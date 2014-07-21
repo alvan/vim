@@ -1,4 +1,6 @@
 setlocal bin
 
 " SuperTab
-call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+if exists('*SuperTabSetDefaultCompletionType')
+    call SuperTabSetDefaultCompletionType("<c-x><c-o>")
+endif

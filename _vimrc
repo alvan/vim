@@ -275,6 +275,7 @@ Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'alvan/vim-php-manual'
+Plugin 'alvan/closetag.vim'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 call vundle#end()            " required
@@ -315,11 +316,6 @@ hi link phpheredoc string
     " au BufWritePost *.php,*.phtml :call CheckSyntax()
 " endif
 au BufWritePost *.php,*.phtml :call CheckSyntax()
-
-" --------------------------------------------------------------------
-" XML
-"
-au BufNewFile,Bufread *.html,*.xhtml,*.phtml,*.shtml source $VIMDIR/scripts/closetag.vim
 
 " --------------------------------------------------------------------
 " JS
@@ -416,6 +412,9 @@ let g:js_indent_log = 0
 
 " xml.vim
 let g:xml_use_xhtml = 0
+
+" closetag.vim
+let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.shtml"
 
 " Enable ShowMarks
 let g:showmarks_enable = 1
