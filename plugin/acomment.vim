@@ -1201,7 +1201,7 @@ endf
 " 获取文件类型，返回其小写的后缀名
 function s:FType()
     " 获取文件名后缀
-    let fType = &filetype
+    let fType = getwinvar(winnr(), '&filetype')
     if fType == ""
         call s:Err(2)
         return
