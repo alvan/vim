@@ -248,10 +248,10 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'alvan/vim-vimcdoc'
 Plugin 'alvan/vim-assistant'
 Plugin 'alvan/vim-phpmanual'
 Plugin 'alvan/vim-closetag'
-Plugin 'asins/vimcdoc'
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'scrooloose/nerdtree'
 Plugin 'alvan/nerdtree'
