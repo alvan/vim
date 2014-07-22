@@ -361,9 +361,8 @@ let g:miniBufExplDebugLevel = 0
 
 let g:NERDTreeDirArrows=0
 let g:NERDTreeMinimalUI=1
-let g:NERDTreeAlwaysShowUpDirLine=1
 let g:NERDTreeAutoCenter=1
-let NERDTreeIgnore=['\~$', '\.pyc$', ]
+let NERDTreeIgnore=['\~$', '\.pyc$']
 
 let g:ctags_statusline=1
 let g:autotagDisabled=1
