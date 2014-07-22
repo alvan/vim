@@ -26,32 +26,32 @@ let g:loaded_acomment = "Version 2.25"
 " 定义键映射
 " 
 " 切换注释模式，用于普通模式
-nmap <silent> <unique> <leader>cs :call <SID>AComment("Comments")<Cr>
+nnoremap <silent> <leader>cs :call <SID>AComment("Comments")<Cr>
 " 添加头部注释，用于普通模式
-nmap <silent> <unique> <leader>ct :call <SID>AComment("CommentTop")<Cr>
+nnoremap <silent> <leader>ct :call <SID>AComment("CommentTop")<Cr>
 " 添加文件结束注释，用于普通模式
-nmap <silent> <unique> <leader>cb :call <SID>AComment("CommentBottom")<Cr>
+nnoremap <silent> <leader>cb :call <SID>AComment("CommentBottom")<Cr>
 " 添加注释，新增于当前下一行，用于普通、插入模式
-nmap <silent> <unique> <leader>cj :call <SID>AComment("Commentj")<Cr>
-imap <silent> <unique> <leader>cj <Esc>:call <SID>AComment("Commentj")<Cr>a
+nnoremap <silent> <leader>cj :call <SID>AComment("Commentj")<Cr>
+inoremap <silent> <leader>cj <Esc>:call <SID>AComment("Commentj")<Cr>a
 " 添加注释，新增于当前上一行，用于普通、插入模式
-nmap <silent> <unique> <leader>ck :call <SID>AComment("Commentk")<Cr>
-imap <silent> <unique> <leader>ck <Esc>:call <SID>AComment("Commentk")<Cr>a
+nnoremap <silent> <leader>ck :call <SID>AComment("Commentk")<Cr>
+inoremap <silent> <leader>ck <Esc>:call <SID>AComment("Commentk")<Cr>a
 " 添加注释，位于当前行末，用于普通、插入模式
-nmap <silent> <unique> <leader>cl :call <SID>AComment("Commentl")<Cr>
-imap <silent> <unique> <leader>cl <Esc>:call <SID>AComment("Commentl")<Cr>a
+nnoremap <silent> <leader>cl :call <SID>AComment("Commentl")<Cr>
+inoremap <silent> <leader>cl <Esc>:call <SID>AComment("Commentl")<Cr>a
 " 注释，用于普通、插入、可视、块模式
-nmap <silent> <unique> <leader>ch :call <SID>AComment("Comment")<Cr>
-imap <silent> <unique> <leader>ch <Esc>:call <SID>AComment("Comment")<Cr>a
-vmap <silent> <unique> <leader>ch <Esc>:'<,'>call <SID>AComment("CommentRange")<Cr>
+nnoremap <silent> <leader>ch :call <SID>AComment("Comment")<Cr>
+inoremap <silent> <leader>ch <Esc>:call <SID>AComment("Comment")<Cr>a
+vnoremap <silent> <leader>ch <Esc>:'<,'>call <SID>AComment("CommentRange")<Cr>
 " 删除注释，可用于普通、插入、可视、块模式
-nmap <silent> <unique> <leader>cc :call <SID>AComment("UnComment")<Cr>
-imap <silent> <unique> <leader>cc <Esc>:call <SID>AComment("UnComment")<Cr>a
-vmap <silent> <unique> <leader>cc <Esc>:'<,'>call <SID>AComment("UnCommentRange")<Cr>
+nnoremap <silent> <leader>cc :call <SID>AComment("UnComment")<Cr>
+inoremap <silent> <leader>cc <Esc>:call <SID>AComment("UnComment")<Cr>a
+vnoremap <silent> <leader>cc <Esc>:'<,'>call <SID>AComment("UnCommentRange")<Cr>
 " 切换 添加（删除）注释，可用于普通、插入、可视、块模式
-nmap <silent> <unique> <leader>x :call <SID>AComment("Commentx")<Cr>
-imap <silent> <unique> <leader>x <Esc>:call <SID>AComment("Commentx")<Cr>a
-vmap <silent> <unique> <leader>x <Esc>:'<,'>call <SID>AComment("CommentxRange")<Cr>
+nnoremap <silent> <leader>x :call <SID>AComment("Commentx")<Cr>
+inoremap <silent> <leader>x <Esc>:call <SID>AComment("Commentx")<Cr>a
+vnoremap <silent> <leader>x <Esc>:'<,'>call <SID>AComment("CommentxRange")<Cr>
 
 " 全局变量设置
 "
