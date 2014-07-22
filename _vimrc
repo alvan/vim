@@ -492,7 +492,8 @@ let g:airline#extensions#whitespace#enabled = 0
 if !exists("g:vdebug_options")
     let g:vdebug_options = {}
 endif
-let g:vdebug_options['server'] = '192.168.56.1'
+" let g:vdebug_options['server'] = '192.168.56.1'
+let g:vdebug_options['server'] = ''
 let g:vdebug_options['port'] = 9001
 let g:vdebug_options['path_maps'] = {'/data/': $HOME.'/'}
 
