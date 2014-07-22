@@ -248,7 +248,9 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'alvan/assistant.vim'
+Plugin 'alvan/vim-assistant'
+Plugin 'alvan/vim-phpmanual'
+Plugin 'alvan/vim-closetag'
 Plugin 'asins/vimcdoc'
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'scrooloose/nerdtree'
@@ -260,7 +262,6 @@ Plugin 'bling/vim-airline'
 " Plugin 'bling/vim-bufferline'
 Plugin 'vimprj'
 Plugin 'indexer.tar.gz'
-" Plugin 'cespare/vim-golang'
 Plugin 'dgryski/vim-godef'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'majutsushi/tagbar'
@@ -272,8 +273,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'alvan/phpmanual.vim'
-Plugin 'alvan/closetag.vim'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 call vundle#end()            " required
@@ -408,10 +407,8 @@ let g:tagbar_type_go = {
 
 let g:js_indent_log = 0
 
-" xml.vim
-let g:xml_use_xhtml = 0
-
 " closetag.vim
+" let g:closetag_use_xhtml = 0
 let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.shtml"
 
 " Enable ShowMarks
