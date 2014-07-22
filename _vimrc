@@ -249,6 +249,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'alvan/assistant.vim'
+Plugin 'asins/vimcdoc'
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'scrooloose/nerdtree'
 Plugin 'alvan/nerdtree'
