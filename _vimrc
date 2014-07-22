@@ -220,9 +220,6 @@ imap ( ()<ESC>i
 imap [ []<ESC>i
 imap {<CR> {}<ESC>i<CR><ESC>O
 
-" add ; to the end of line
-" inoremap <silent> <C-e>; <Esc>:call setline('.',getline('.').';')<CR>a
-
 " visually select the full path of a local html file or a URL
 " and press <C-l> to open it.
 vnoremap <silent> <C-l> y:call system('xdg-open '.shellescape(@@=~'^\s*\(http\\|https\\|ftp\\|file\):/'?@@:('http://'.@@)).' &')<CR>
@@ -274,7 +271,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'alvan/vim-php-manual'
+Plugin 'alvan/phpmanual.vim'
 Plugin 'alvan/closetag.vim'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
