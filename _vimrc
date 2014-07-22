@@ -274,6 +274,7 @@ Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'joonty/vdebug'
 
 call vundle#end()            " required
 
@@ -486,6 +487,14 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#whitespace#enabled = 0
+
+" Vdebug
+if !exists("g:vdebug_options")
+    let g:vdebug_options = {}
+endif
+let g:vdebug_options['server'] = '192.168.56.1'
+let g:vdebug_options['port'] = 9001
+let g:vdebug_options['path_maps'] = {'/data/': $HOME.'/'}
 
 " --------------------------------------------------------------------
 " End of file : .vimrc
