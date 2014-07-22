@@ -487,15 +487,7 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.space = "\ua0"
-
 let g:airline#extensions#whitespace#enabled = 0
-
-" Debugger
-let g:debuggerPort = 9001
-" client: server
-let g:debuggerPath = {'sep':['/', '/'], 'map': [
-            \[$HOME, '/data/'],
-            \]}
 
 " --------------------------------------------------------------------
 " End of file : .vimrc
