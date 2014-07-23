@@ -3,14 +3,17 @@ Here is Alvan's vim configurations.
 Screenshots
 -----------
 
-GVim vimrc:
+GVim Vimrc:
 ![vimrc.png](/screenshots/20140720/vimrc.png)
 
-GVim ctrlp:
+GVim Ctrlp:
 ![ctrlp.png](/screenshots/20140720/ctrlp.png)
 
-GVim gowin:
+GVim Gowin:
 ![gowin.png](/screenshots/20140720/gowin.png)
+
+GVim PHP help doc:
+![doc.png](/screenshots/20140723/doc.png)
 
 Terminal Vim vimrc:
 ![vimrc.terminal.png](/screenshots/20140720/vimrc.terminal.png)
