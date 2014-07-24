@@ -13,7 +13,7 @@ GVim Gowin:
 ![gowin.png](/screenshots/20140720/gowin.png)
 
 GVim PHP help doc:
-![doc.png](/screenshots/20140723/doc.png)
+![doc.png](/screenshots/20140725/doc.png)
 
 Terminal Vim vimrc:
 ![vimrc.terminal.png](/screenshots/20140720/vimrc.terminal.png)
