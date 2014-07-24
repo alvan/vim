@@ -274,6 +274,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'joonty/vdebug'
+Plugin 'DrawIt'
 
 call vundle#end()            " required
 
@@ -494,6 +495,9 @@ endif
 let g:vdebug_options['server'] = ''
 let g:vdebug_options['port'] = 9001
 let g:vdebug_options['path_maps'] = {'/data/': $HOME.'/'}
+
+" DrawIt
+let g:DrChipTopLvlMenu= "Tools."
 
 " --------------------------------------------------------------------
 " End of file : .vimrc
