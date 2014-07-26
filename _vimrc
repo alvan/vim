@@ -115,11 +115,16 @@ set confirm
 " source $VIMRUNTIME/delmenu.vim
 " source $VIMRUNTIME/menu.vim
 
-set nowrap
+set guioptions-=l
+set guioptions-=r
+set guioptions-=L
+set guioptions-=R
 set guioptions+=b
 set guioptions+=m
 set guioptions-=T
 set guitablabel=[%N]\ %t\ %M
+
+set nowrap
 
 set bsdir=buffer
 set autochdir
