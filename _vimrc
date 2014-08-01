@@ -4,7 +4,7 @@
 "          Path:  ~/.vim
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2014-07-20
+"      Modified:  2014-08-01
 "
 "  --}}}
 "
@@ -237,55 +237,25 @@ nmap <leader>wl :TagbarToggle<CR>
 nmap <leader>wm <leader>wl<leader>wh
 
 " --------------------------------------------------------------------
-" Plugin Manager
+" Rtps
 " --------------------------------------------------------------------
 
 filetype off                 " required
 
-" set rtp+=/usr/local/go/misc/vim
-set rtp+=$GOROOT/misc/vim
+if $GOROOT != ''
+    set rtp+=$GOROOT/misc/vim
+endif
 
 " set the runtime path to include Vundle and initialize
 set rtp+=$VIMDIR/bundle/Vundle.vim
 call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'alvan/vim-vimcdoc'
-Plugin 'alvan/vim-assistant'
-Plugin 'alvan/vim-phpmanual'
-Plugin 'alvan/vim-closetag'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'techlivezheng/vim-plugin-minibufexpl'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
-" Plugin 'bling/vim-bufferline'
-Plugin 'vimprj'
-Plugin 'indexer.tar.gz'
-Plugin 'dgryski/vim-godef'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'joonty/vdebug'
-Plugin 'DrawIt'
-Plugin 'fs111/pydoc.vim'
-
-call vundle#end()            " required
+source $VIMDIR/bundles.conf
+call vundle#end()
 
 filetype plugin indent on    " required
 
 " --------------------------------------------------------------------
-" File Type Based Configs
+" Conf
 " --------------------------------------------------------------------
 " Go
 "
@@ -338,8 +308,6 @@ else
     colorscheme calmar256
 endif
 
-" --------------------------------------------------------------------
-" Plugin Configs
 " --------------------------------------------------------------------
 let g:snips_author = g:user
 
