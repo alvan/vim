@@ -471,5 +471,9 @@ let g:vdebug_options['path_maps'] = {'/data/': $HOME.'/'}
 " DrawIt
 let g:DrChipTopLvlMenu= "Tools."
 
+" Sparkup
+let g:sparkupExecuteMapping = "<silent> <c-e>"
+let g:sparkupNextMapping = '<silent> <c-n>'
+
 " --------------------------------------------------------------------
 " End of file : .vimrc
