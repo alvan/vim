@@ -110,11 +110,6 @@ set vb t_vb=
 
 set confirm
 
-" set langmenu=zh_CN.UTF-8
-" language messages zh_CN.utf-8
-" source $VIMRUNTIME/delmenu.vim
-" source $VIMRUNTIME/menu.vim
-
 set nowrap
 set guioptions-=l
 set guioptions-=r
@@ -308,6 +303,11 @@ if has('gui_running')
 else
     colorscheme calmar256
 endif
+
+" set langmenu=zh_CN.UTF-8
+" language messages zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 
 " --------------------------------------------------------------------
 let g:snips_author = g:user
