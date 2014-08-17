@@ -212,12 +212,13 @@ vnoremap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 nmap <silent> ;m <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>
 
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap ` ``<ESC>i
-imap ( ()<ESC>i
-imap [ []<ESC>i
-imap {<CR> {}<ESC>i<CR><ESC>O
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ` ``<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {}<ESC>i<CR><ESC>O
 
 " visually select the full path of a local html file or a URL
 " and press <C-l> to open it.
