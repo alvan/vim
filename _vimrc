@@ -149,6 +149,7 @@ set nosmd
 set shortmess=atI
 set scrolloff=5
 
+" set cc=80
 set nu!
 set cul
 " set cuc
