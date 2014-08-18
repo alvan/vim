@@ -4,7 +4,7 @@
 "          Path:  ~/.vim/plugin
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2009-09-01 09:45:29  
+"      Modified:  2014-08-18
 "   Description:  在文档中快速添加注释的vim插件
 "                 可自由添加支持的文件类型、定义注释符号
 "                 仅在linux系统下的Vim中测试
@@ -20,7 +20,7 @@ if exists("g:loaded_acomment")
 endif
 
 " acomment插件版本号
-let g:loaded_acomment = "Version 2.25"
+let g:loaded_acomment = "Version 2.3"
 
 " ***********************************配置*************************************
 " 定义键映射
@@ -142,7 +142,7 @@ let s:aDict['fType'] = {
             \'php':[1,4,9],
             \'phtml':[4,1,9],
             \'python':[5],
-            \'cpp':[2],'java':[2],'js':[2],'go':[2],
+            \'cpp':[2],'java':[2],'javascript':[2],'js':[2],'go':[2],
             \'css':[3],'c':[3],'h':[3],'pc':[3],
             \'htm':[4,2],'html':[4,2],'xml':[4],'xhtml':[4,2],'tpl':[4,2],
             \'ini':[5,6],'sh':[5],'conkyrc':[5],'list':[5],
@@ -1062,12 +1062,9 @@ endf
 " ==============================================================================
 " 初始化插件
 "
-autocmd BufEnter,BufRead * :call s:InitA()
-autocmd Filetype * :call s:InitA()
-
 function s:InitA()
     " 设置初始化状态为F(alse)
-    let s:initA = "F"
+    let b:initA = "F"
 
     " 设置全局变量
     if !exists("g:acommentAutoIndent")
@@ -1129,7 +1126,7 @@ function s:InitA()
     endif
 
     " 初始化成功，设置状态为T(rue)
-    let s:initA = "T"
+    let b:initA = "T"
 endf
 
 " 全局接口函数
@@ -1139,7 +1136,7 @@ endf
 "
 function s:AComment(funcName)
     " 检查插件是否已初始化
-    if !exists("s:initA")
+    if !exists("b:initA")
         call s:InitA()
         if s:Err("hasErr")
             echo "（".strftime("%H:%M:%S")."）".s:Err("ERR").s:Err()
@@ -1163,7 +1160,7 @@ function s:AComment(funcName)
         endif
     endif
 
-    if s:initA != "T"
+    if b:initA != "T"
         if isRange ==? "T" && isLast !=? "T"
             return
         endif
@@ -1494,14 +1491,6 @@ function s:StrToEreg(cStr)
     let cStr = substitute(cStr,'\(\"\|\*\)','\\\1',"g")
     return cStr
 endf
-
-" ==============================================================================
-" vim相应配置
-" GVIM下编辑该插件脚本时不折行，显示水平滚动条
-if has("gui_running") && bufname("%") ==? "acomment.vim"
-    set nowrap
-    set guioptions+=b
-endif
 
 " }}}
 " vim:ft=vim:ff=unix:tabstop=4:shiftwidth=4:softtabstop=4:expandtab
