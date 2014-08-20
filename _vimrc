@@ -96,6 +96,14 @@ func! CheckSyntax()
     endif
 endf
 
+func! OpenBrowser(url)
+    if has("win32") || has("win95") || has("win64") || has("win16")
+        call system('explorer '.shellescape(a:url))
+    else
+        call system('xdg-open '.shellescape(a:url) . ' &')
+    endif
+endf
+
 " --------------------------------------------------------------------
 " Mode
 " --------------------------------------------------------------------
@@ -222,7 +230,7 @@ inoremap {<CR> {}<ESC>i<CR><ESC>O
 
 " visually select the full path of a local html file or a URL
 " and press <C-l> to open it.
-vnoremap <silent> <C-l> y:call system('xdg-open '.shellescape(@@=~'^\s*\(http\\|https\\|ftp\\|file\):/'?@@:('http://'.@@)).' &')<CR>
+vnoremap <silent> <C-l> y:call OpenBrowser(@@=~'^\s*\(http\\|https\\|ftp\\|file\):/'?@@:('http://'.@@))<CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
