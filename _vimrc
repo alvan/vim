@@ -213,9 +213,9 @@ let g:gofmt_command = "goimports"
 " let g:godef_split=0
 let g:godef_same_file_in_same_window=1
 
-au BufWritePre *.go :Fmt
-" au FileType go setlocal formatoptions=cqra1 tw=80 ai nofoldenable
 au FileType go compiler go
+au FileType go au BufWritePre <buffer> Fmt
+" au FileType go setlocal formatoptions=cqra1 tw=80 ai nofoldenable
 "
 " --------------------------------------------------------------------
 " PHP
