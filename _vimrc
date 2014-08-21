@@ -42,60 +42,6 @@ func! QuitIfNoWin()
     endif
 endf
 
-func! CheckSyntax()
-    if &filetype=="php"
-        let makeold = &makeprg
-
-        if has("unix")
-            setlocal makeprg=\"/usr/bin/php5\"\ -l\ -n\ -d\ html_errors=off
-        else
-            setlocal makeprg=\"D:\Program\ Files\xampp\php\php.exe\"\ -l\ -n\ -d\ html_errors=off
-        endif
-
-        setlocal shellpipe=>
-        setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-
-        execute "silent make %"
-
-        let error = 0
-        let mktip = ""
-        for e in getqflist()
-            if e["lnum"] > 0
-                let error = 1
-                let mktip = e["text"] . " on line " . e["lnum"]
-                execute "normal " . e["lnum"] . "gg"
-                break
-            endif
-            if mktip == "" && e["text"] != ""
-                let mktip = e["text"]
-            endif
-        endfor
-
-        " if error == 0
-            " execute "normal :"
-            " execute "cwindow"
-            " redraw
-            " echo mktip
-        " else
-            " execute "normal :"
-            " execute "bo cwindow"
-        " endif
-
-        if error == 0
-            execute "normal :"
-            execute "cwindow"
-            redraw
-            echo mktip
-        else
-            if mktip != ""
-                echo mktip
-            endif
-        endif
-
-        set makeprg=makeold
-    endif
-endf
-
 func! OpenBrowser(url)
     if has("win32") || has("win95") || has("win64") || has("win16")
         call system('explorer '.shellescape(a:url))
@@ -286,12 +232,9 @@ hi link phpheredoc string
 
 " if has("unix")
     " au BufWritePost *.php,*.phtml :!/usr/bin/php5 -ln %
-    " au BufWritePost *.php,*.phtml :call CheckSyntax()
 " else
     " au BufWritePost *.php,*.phtml :!"D:\Program Files\xampp\php\php.exe" -ln %
-    " au BufWritePost *.php,*.phtml :call CheckSyntax()
 " endif
-au BufWritePost *.php,*.phtml :call CheckSyntax()
 
 " --------------------------------------------------------------------
 " JS
@@ -490,6 +433,11 @@ let g:sparkupNextMapping = '<silent> <c-n>'
 
 " Markdown
 let g:vim_markdown_folding_disabled=1
+
+" Syntastic
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
 
 " --------------------------------------------------------------------
 " End of file : .vimrc
