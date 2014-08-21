@@ -488,5 +488,8 @@ let g:DrChipTopLvlMenu= "Tools."
 let g:sparkupExecuteMapping = "<silent> <c-e>"
 let g:sparkupNextMapping = '<silent> <c-n>'
 
+" Markdown
+let g:vim_markdown_folding_disabled=1
+
 " --------------------------------------------------------------------
 " End of file : .vimrc
