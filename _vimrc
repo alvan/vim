@@ -400,10 +400,9 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
 
 " Vim-Go
-if $GOPATH != ''
-    let g:go_bin_path = expand("$GOPATH/bin/")
-en
+let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_disable_autoinstall = 1
+
 " --------------------------------------------------------------------
 
 " --------------------------------------------------------------------
