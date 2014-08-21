@@ -4,7 +4,7 @@
 "          Path:  ~/.vim
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2014-08-01
+"      Modified:  2014-08-21
 "
 "  --}}}
 "
@@ -192,10 +192,6 @@ nmap <leader>wm <leader>wl<leader>wh
 
 filetype off                 " required
 
-if $GOROOT != ''
-    set rtp+=$GOROOT/misc/vim
-endif
-
 " set the runtime path to include Vundle and initialize
 set rtp+=$VIMDIR/bundle/Vundle.vim
 call vundle#begin()
@@ -206,17 +202,6 @@ filetype plugin indent on    " required
 
 " --------------------------------------------------------------------
 " Conf
-" --------------------------------------------------------------------
-" Go
-"
-let g:gofmt_command = "goimports"
-" let g:godef_split=0
-let g:godef_same_file_in_same_window=1
-
-au FileType go compiler go
-au FileType go au BufWritePre <buffer> Fmt
-" au FileType go setlocal formatoptions=cqra1 tw=80 ai nofoldenable
-"
 " --------------------------------------------------------------------
 " PHP
 "
@@ -294,6 +279,7 @@ let g:ctags_statusline=1
 let g:autotagDisabled=1
 let g:autotagExcludeSuffixes="tml.xml.text.txt"
 
+" Tagbar
 let g:tagbar_left = 0
 let g:tagbar_sort = 0
 let g:tagbar_width = 30
@@ -302,34 +288,8 @@ let g:tagbar_autoclose = 0
 let g:tagbar_iconchars = ['+', '-']
 let g:tagbar_map_jump = ['<CR>', 'o']
 let g:tagbar_map_togglefold = 'za'
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
 
+" javascript indent
 let g:js_indent_log = 0
 
 " closetag.vim
@@ -438,6 +398,13 @@ let g:vim_markdown_folding_disabled=1
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
+
+" Vim-Go
+if $GOPATH != ''
+    let g:go_bin_path = expand("$GOPATH/bin/")
+en
+let g:go_disable_autoinstall = 1
+" --------------------------------------------------------------------
 
 " --------------------------------------------------------------------
 " End of file : .vimrc
