@@ -16,7 +16,7 @@
 if exists("g:js_indent") 
 	so g:js_indent
 else 
-	ru! indent/javascript.vim
+	ru! indent/html-js.vim
 endif
 
 " [-- local settings (must come before aborting the script) --]
