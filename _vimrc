@@ -430,7 +430,7 @@ let g:ctrlp_custom_ignore = {
             \ }
 let g:ctrlp_map = '?'
 let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_extensions = ['tag', 'mixed', 'quickfix']
+let g:ctrlp_extensions = ['tag', 'mixed', 'modified', 'quickfix']
 let g:ctrlp_root_markers = ['root.dir', '.root.dir', '.git', '.hg']
 let g:ctrlp_prompt_mappings = {
             \ 'PrtBS()':              ['<bs>'],
