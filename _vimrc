@@ -189,8 +189,7 @@ set iskeyword+=_,$,@,%,#
 set lbr
 set display=lastline
 
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.swp  " Linux/MacOSX
-set wildignore+=.git\*,.hg\*,.svn\*,*.swp        " Windows
+set wildignore+=*.swp,*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*/.git/*,*/.hg/*,*/.svn/*
 
 set formatoptions+=mM
 set backspace=indent,eol,start
@@ -426,6 +425,9 @@ let g:indexer_disableCtagsWarning=1
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_custom_ignore = {
+            \ 'file': '\v\.(exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
+            \ }
 let g:ctrlp_map = '?'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_extensions = ['tag', 'mixed', 'quickfix']
