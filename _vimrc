@@ -170,7 +170,7 @@ inoremap ' ''<left>
 inoremap ` ``<left>
 inoremap ( ()<left>
 inoremap [ []<left>
-inoremap { {}<left>
+" inoremap { {}<left>
 inoremap {<CR> {}<ESC>i<CR><ESC>O
 
 " visually select the full path of a local html file or a URL
