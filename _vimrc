@@ -166,7 +166,7 @@ noremap <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 vnoremap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
-nnoremap <silent> ;m <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>
+nnoremap <silent> ;m <Esc>:marks abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<CR>
 
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -413,6 +413,9 @@ let g:go_disable_autoinstall = 1
 
 " Startify
 let g:startify_disable_at_vimenter = 1
+
+" Markology
+let g:markology_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 " --------------------------------------------------------------------
 
