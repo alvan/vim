@@ -413,7 +413,11 @@ let g:go_disable_autoinstall = 1
 let g:startify_disable_at_vimenter = 1
 
 " Markology
-let g:markology_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let g:markology_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+" Vmep
+let g:VMEPoutputformat = 'html'
+" let g:VMEPhtmlreader = 'firefox'
 
 " --------------------------------------------------------------------
 
