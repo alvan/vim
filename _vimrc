@@ -147,6 +147,9 @@ set complete-=k complete+=k
 
 set tags+=tags;
 
+" last-position-jump
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
 au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 
 " --------------------------------------------------------------------
@@ -163,7 +166,7 @@ noremap <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 vnoremap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
-nmap <silent> ;m <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>
+nnoremap <silent> ;m <Esc>:marks abcdefghijklmnopqrstuvwxyz<CR>
 
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -185,6 +188,9 @@ nmap <leader>wh :NERDTreeToggle<CR>
 nmap <leader>wk :MBEToggle<CR>
 nmap <leader>wl :TagbarToggle<CR>
 nmap <leader>wm <leader>wl<leader>wh
+
+noremap <C-w>= :MBEbf<CR>
+noremap <C-w>- :MBEbb<CR>
 
 " --------------------------------------------------------------------
 " Rtps
@@ -374,6 +380,8 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tagbar#enabled = 0
+
 
 " Vdebug
 if !exists("g:vdebug_options")
@@ -402,6 +410,9 @@ let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
 " Vim-Go
 let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_disable_autoinstall = 1
+
+" Startify
+let g:startify_disable_at_vimenter = 1
 
 " --------------------------------------------------------------------
 
