@@ -166,8 +166,6 @@ noremap <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
 vnoremap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
-nnoremap <silent> ;m <Esc>:marks<CR>
-
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ` ``<left>
