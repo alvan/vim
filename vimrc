@@ -1,6 +1,6 @@
 "  == "acomment" == {{{
 "
-"          File:  _vimrc
+"          File:  vimrc
 "          Path:  ~/.vim
 "        Author:  Alvan
 "      Modifier:  Alvan
@@ -418,4 +418,4 @@ let g:markology_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 " --------------------------------------------------------------------
 
 " --------------------------------------------------------------------
-" End of file : .vimrc
+" End of file : vimrc
