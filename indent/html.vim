@@ -8,10 +8,10 @@
 "		g:html_indent_strict_table -- inhibit 'O -' elements
 
 " Only load this indent file when no other was loaded.
-"if exists("b:did_indent")
-    "finish
-"endif
-"let b:did_indent = 1
+if exists("b:did_indent")
+    finish
+endif
+let b:did_indent = 1
 
 if exists("g:js_indent") 
 	so g:js_indent
