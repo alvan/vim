@@ -1,5 +1,3 @@
-setlocal bin
-
 " add ; to the end of line
 " inoremap <silent> <buffer> <C-e> <Esc>:call setline('.',getline('.').';')<CR>a
 
