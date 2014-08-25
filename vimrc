@@ -233,16 +233,6 @@ au BufNewFile,Bufread *.php,*.phtml setlocal dictionary+=$VIMDIR/dicts/php.txt
 
 hi link phpheredoc string
 
-" au BufWritePre *.php :%s/\s\+$//g
-" au BufWritePost *.php exec "normal ''"
-" au BufNewFile,Bufread *.js,*.php,*.phtml set noendofline binary
-
-" if has("unix")
-    " au BufWritePost *.php,*.phtml :!/usr/bin/php5 -ln %
-" else
-    " au BufWritePost *.php,*.phtml :!"D:\Program Files\xampp\php\php.exe" -ln %
-" endif
-
 " --------------------------------------------------------------------
 " JS
 "
