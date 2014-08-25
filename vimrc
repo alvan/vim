@@ -1,18 +1,16 @@
-"  == "acomment" == {{{
+" == "acomment" == {{{
 "
 "          File:  vimrc
-"          Path:  ~/.vim
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2014-08-21
+"      Modified:  2014-08-25
 "
-"  --}}}
+" --}}}
 "
 " --------------------------------------------------------------------
 " Init
 " --------------------------------------------------------------------
 set nocompatible
-
 let g:user = 'Alvan'
 
 if has("unix")
@@ -163,6 +161,14 @@ noremap <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
             \set guioptions+=m <Bar>
             \endif<CR>
 
+noremap <C-w>= :MBEbf<CR>
+noremap <C-w>- :MBEbb<CR>
+
+nnoremap <leader>wh :NERDTreeToggle<CR>
+nnoremap <leader>wk :MBEToggle<CR>
+nnoremap <leader>wl :TagbarToggle<CR>
+nnoremap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
+
 vnoremap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
@@ -180,15 +186,7 @@ vnoremap <silent> <C-l> y:call OpenBrowser(@@=~'^\s*\(http\\|https\\|ftp\\|file\
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
-
-nmap <leader>wh :NERDTreeToggle<CR>
-nmap <leader>wk :MBEToggle<CR>
-nmap <leader>wl :TagbarToggle<CR>
-nmap <leader>wm <leader>wl<leader>wh
-
-noremap <C-w>= :MBEbf<CR>
-noremap <C-w>- :MBEbb<CR>
+command! W w !sudo tee % > /dev/null
 
 " --------------------------------------------------------------------
 " Rtps
@@ -206,6 +204,26 @@ filetype plugin indent on    " required
 
 " --------------------------------------------------------------------
 " Conf
+" --------------------------------------------------------------------
+" *
+syntax on
+
+if has('gui_running')
+    let g:solarized_menu = 0
+    let g:solarized_italic = 0
+    let g:solarized_termcolors = 256
+    " let g:solarized_termtrans = 1
+
+    colorscheme solarized
+else
+    colorscheme calmar256
+endif
+
+" set langmenu=zh_CN.UTF-8
+" language messages zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
 " --------------------------------------------------------------------
 " PHP
 "
@@ -231,103 +249,67 @@ hi link phpheredoc string
 au BufNewFile,Bufread *.js,*.html,*.xhtml,*.phtml,*.shtml setlocal dictionary+=$VIMDIR/dicts/js.txt
 
 " --------------------------------------------------------------------
-" *
-syntax on
-
-if has('gui_running')
-    let g:solarized_menu = 0
-    let g:solarized_italic = 0
-    let g:solarized_termcolors = 256
-    " let g:solarized_termtrans = 1
-
-    colorscheme solarized
-else
-    colorscheme calmar256
-endif
-
-" set langmenu=zh_CN.UTF-8
-" language messages zh_CN.utf-8
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-
-" --------------------------------------------------------------------
-let g:snips_author = g:user
-
+" Acomment
+"
 let g:acommentAutoIndent = 0
 let g:acommentStrictMode = 3
-function g:acommentSet()
+func! g:acommentSet()
     let g:acomment = {}
     let g:acomment["user"] = g:user
-
-    if has("unix")
-        let g:acomment["reUrl"] = [
-                    \["/data/develop/include","."],
-                    \["/data/develop/apf/master/library","."],
-                    \["/data/develop/apf/library","."],
-                    \["/data/develop/apf.git/master/library","."],
-                    \["/data/develop/apf.git/library","."],
-                    \["/data/develop","."],
-                    \]
-    endif
+    let g:acomment['cTop'] = [
+                \ [["          File:  ","Y"],[expand("%"),"N"]]
+                \,[["        Author:  ","Y"],[g:acomment["user"],"T"]]
+                \,[["      Modifier:  ","Y"],[g:acomment["user"],"SIGN"]]
+                \,[["      Modified:  ","Y"],[strftime("%Y-%m-%d"),"N"]]
+                \,[["   Description:  ","N"],["","Y"]]
+                \]
 endf
 
-" let g:miniBufExplorerMoreThanOne = 1
-let g:miniBufExplDebugLevel = 0
+" Airline
+"
+let g:airline_theme = 'lucius'
+" let g:airline_theme = 'zenburn'
+" let g:airline_theme = 'solarized'
+let g:airline_powerline_fonts = 1
+let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'n'  : 'Nor',
+            \ 'i'  : 'Ins',
+            \ 'R'  : 'Rep',
+            \ 'c'  : 'Cmd',
+            \ 'v'  : 'Vis',
+            \ 'V'  : 'V⋅L',
+            \ '' : 'V⋅B',
+            \ 's'  : 'Sel',
+            \ 'S'  : 'S⋅L',
+            \ '' : 'S⋅B',
+            \ }
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+let g:airline_symbols.space = "\ua0"
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tagbar#enabled = 0
 
-let g:NERDTreeDirArrows=0
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeAutoCenter=1
-let NERDTreeIgnore=['\~$', '\.pyc$']
-
-let g:ctags_statusline=1
-let g:autotagDisabled=1
-let g:autotagExcludeSuffixes="tml.xml.text.txt"
-
-" Tagbar
-let g:tagbar_left = 0
-let g:tagbar_sort = 0
-let g:tagbar_width = 30
-let g:tagbar_compact = 1
-let g:tagbar_autoclose = 0
-let g:tagbar_iconchars = ['+', '-']
-let g:tagbar_map_jump = ['<CR>', 'o']
-let g:tagbar_map_togglefold = 'za'
-
-" javascript indent
-let g:js_indent_log = 0
-
-" closetag.vim
+" Closetag
+"
 " let g:closetag_use_xhtml = 0
 let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.shtml"
 
-" Enable ShowMarks
-let g:showmarks_enable = 1
-" Show which marks
-let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-" Ignore help, quickfix, non-modifiable buffers
-let g:showmarks_ignore_type = "hqm"
-" Hilight lower & upper marks
-" let g:showmarks_hlline_lower = 1
-" let g:showmarks_hlline_upper = 1
+" Ctags
+let g:ctags_statusline = 1
+let g:autotagDisabled = 1
+let g:autotagExcludeSuffixes = "tml.xml.text.txt"
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" Supertab
-" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" Indexer
-let g:indexer_tagsDirname = $HOME.'/.vim_indexer_tags'
-let g:indexer_indexerListFilename = $VIMDIR.'/indexer.conf'
-let g:indexer_changeCurDirIfVimprjFound = 0
-" let g:indexer_ctagsJustAppendTagsAtFileSave = 1
-" let g:indexer_debugLogLevel = 3
-let g:indexer_disableCtagsWarning=1
-
-" ctrlP
+" CtrlP
+"
 " let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:16'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
@@ -347,41 +329,90 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtExpandDir()':       [],
             \ }
 
-" Airline
-let g:airline_theme= 'lucius'
-" let g:airline_theme= 'zenburn'
-" let g:airline_theme= 'solarized'
-let g:airline_powerline_fonts = 1
-let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'n'  : 'Nor',
-            \ 'i'  : 'Ins',
-            \ 'R'  : 'Rep',
-            \ 'c'  : 'Cmd',
-            \ 'v'  : 'Vis',
-            \ 'V'  : 'V⋅L',
-            \ '' : 'V⋅B',
-            \ 's'  : 'Sel',
-            \ 'S'  : 'S⋅L',
-            \ '' : 'S⋅B',
-            \ }
+" DrawIt
+"
+let g:DrChipTopLvlMenu = "Tools."
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '⭡'
-let g:airline_symbols.space = "\ua0"
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tagbar#enabled = 0
+" Indexer
+"
+let g:indexer_tagsDirname = $HOME.'/.vim_indexer_tags'
+let g:indexer_indexerListFilename = $VIMDIR.'/indexer.conf'
+let g:indexer_changeCurDirIfVimprjFound = 0
+" let g:indexer_ctagsJustAppendTagsAtFileSave = 1
+" let g:indexer_debugLogLevel = 3
+let g:indexer_disableCtagsWarning = 1
 
+" Javascript indent
+"
+let g:js_indent_log = 0
+
+" Markdown
+"
+let g:vim_markdown_folding_disabled = 1
+
+" Markology
+"
+let g:markology_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+" MiniBufExpl
+"
+" let g:miniBufExplorerMoreThanOne = 1
+let g:miniBufExplDebugLevel = 0
+
+" NERDTree
+"
+let g:NERDTreeDirArrows = 0
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeAutoCenter = 1
+let NERDTreeIgnore = ['\~$', '\.pyc$']
+
+" Rainbow
+"
+let g:rainbow_active = 1
+
+" Snippets
+"
+let g:snips_author = g:user
+
+" Sparkup
+"
+let g:sparkupExecuteMapping = "<silent> <c-e>"
+let g:sparkupNextMapping = '<silent> <c-n>'
+
+" Startify
+"
+let g:startify_disable_at_vimenter = 1
+
+" Supertab
+"
+" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" Syntastic
+"
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
+
+" Tagbar
+let g:tagbar_left = 0
+let g:tagbar_sort = 0
+let g:tagbar_width = 30
+let g:tagbar_compact = 1
+let g:tagbar_autoclose = 0
+let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_map_jump = ['<CR>', 'o']
+let g:tagbar_map_togglefold = 'za'
+
+" UltiSnips
+"
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Vdebug
+"
 if !exists("g:vdebug_options")
     let g:vdebug_options = {}
 endif
@@ -390,35 +421,10 @@ let g:vdebug_options['server'] = ''
 let g:vdebug_options['port'] = 9001
 let g:vdebug_options['path_maps'] = {'/data/': $HOME.'/'}
 
-" DrawIt
-let g:DrChipTopLvlMenu= "Tools."
-
-" Sparkup
-let g:sparkupExecuteMapping = "<silent> <c-e>"
-let g:sparkupNextMapping = '<silent> <c-n>'
-
-" Markdown
-let g:vim_markdown_folding_disabled=1
-
-" Syntastic
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
-
 " Vim-Go
+"
 let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_disable_autoinstall = 1
-
-" Startify
-let g:startify_disable_at_vimenter = 1
-
-" Markology
-let g:markology_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-" Rainbow
-let g:rainbow_active = 1
-
-" --------------------------------------------------------------------
 
 " --------------------------------------------------------------------
 " End of file : vimrc
