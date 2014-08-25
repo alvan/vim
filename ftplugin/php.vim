@@ -1,3 +1,8 @@
+if exists('b:did_local_ftplugin')
+    finish
+endif
+let b:did_local_ftplugin = 1
+
 " add ; to the end of line
 " inoremap <silent> <buffer> <C-e> <Esc>:call setline('.',getline('.').';')<CR>a
 

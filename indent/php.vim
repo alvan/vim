@@ -12,7 +12,7 @@ endif
 let s:doing_indent_inits = 1
 runtime! indent/html.vim
 unlet b:did_indent
-runtime! indent/phtml.vim
+runtime! indent/php.vim
 unlet s:doing_indent_inits
 
 function! GetPhpHtmlIndent(lnum)
