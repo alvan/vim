@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2014-08-25
+"      Modified:  2014-08-27
 "
 " --}}}
 "
@@ -322,6 +322,11 @@ let g:ctrlp_prompt_mappings = {
 " DrawIt
 "
 let g:DrChipTopLvlMenu = "Tools."
+
+" HTML indent
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+let g:html_indent_inctags = "html,body,head"
 
 " Indexer
 "
