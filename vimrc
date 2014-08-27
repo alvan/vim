@@ -286,7 +286,6 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tagbar#enabled = 0
 
 " Closetag
 "
