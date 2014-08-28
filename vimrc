@@ -400,6 +400,7 @@ let g:tagbar_map_togglefold = 'za'
 
 " UltiSnips
 "
+let g:UltiSnipsSnippetDirectories = ["snips", "UltiSnips"]
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger = "<tab>"
 " let g:UltiSnipsJumpForwardTrigger = "<tab>"
