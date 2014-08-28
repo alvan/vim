@@ -161,14 +161,21 @@ else
 }
 endsnippet
 
+snippet elif
+else if (${1:/* condition */})
+{
+	${2}
+}
+endsnippet
+
 snippet ?else
 <? else: ?>
 	${1}
 endsnippet
 
-snippet ?elseif
-<? elseif: ?>
-	${1}
+snippet ?elif
+<? elseif (${1}): ?>
+	${2}
 endsnippet
 
 snippet switch
