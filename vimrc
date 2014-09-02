@@ -220,7 +220,7 @@ else
 endif
 
 highlight clear SignColumn
-highlight default link SignColumn LineNr
+highlight default link SignColumn CursorLineNr
 
 " set langmenu=zh_CN.UTF-8
 " language messages zh_CN.utf-8
