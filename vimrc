@@ -219,6 +219,9 @@ else
     colorscheme calmar256
 endif
 
+highlight clear SignColumn
+highlight default link SignColumn LineNr
+
 " set langmenu=zh_CN.UTF-8
 " language messages zh_CN.utf-8
 source $VIMRUNTIME/delmenu.vim
