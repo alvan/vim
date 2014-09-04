@@ -172,12 +172,11 @@ nnoremap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 vnoremap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
-inoremap "" ""<left>
-inoremap '' ''<left>
-inoremap `` ``<left>
-inoremap () ()<left>
-inoremap [] []<left>
-inoremap {} {}<left>
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ` ``<left>
+inoremap ( ()<left>
+inoremap [ []<left>
 inoremap {<CR> {}<ESC>i<CR><ESC>O
 
 " visually select the full path of a local html file or a URL
