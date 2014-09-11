@@ -415,6 +415,7 @@ if $GOPATH == ''
 en
 let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_disable_autoinstall = 1
+" let g:go_fmt_command = "goimports"
 
 " --------------------------------------------------------------------
 " End of file : vimrc
