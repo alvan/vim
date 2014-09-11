@@ -209,6 +209,7 @@ syntax on
 
 let g:solarized_menu = 0
 let g:solarized_italic = 0
+let g:solarized_termtrans = 1
 colorscheme solarized
 
 " set langmenu=zh_CN.UTF-8
