@@ -353,10 +353,6 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeAutoCenter = 1
 let NERDTreeIgnore = ['\~$', '\.pyc$']
 
-" Rainbow
-"
-let g:rainbow_active = 1
-
 " Snippets
 "
 let g:snips_author = g:user
