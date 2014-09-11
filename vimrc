@@ -207,16 +207,9 @@ filetype plugin indent on    " required
 " *
 syntax on
 
-if has('gui_running')
-    let g:solarized_menu = 0
-    let g:solarized_italic = 0
-    let g:solarized_termcolors = 256
-    " let g:solarized_termtrans = 1
-
-    colorscheme solarized
-else
-    colorscheme calmar256
-endif
+let g:solarized_menu = 0
+let g:solarized_italic = 0
+colorscheme solarized
 
 " set langmenu=zh_CN.UTF-8
 " language messages zh_CN.utf-8
