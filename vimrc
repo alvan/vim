@@ -410,9 +410,6 @@ let g:vdebug_options['path_maps'] = {'/data/': $HOME.'/'}
 
 " Vim-Go
 "
-if $GOPATH == ''
-    let $GOPATH = '/data/develop/go'
-en
 let g:go_bin_path = expand("$GOPATH/bin/")
 " let g:go_fmt_command = "goimports"
 
