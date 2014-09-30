@@ -144,7 +144,7 @@ let s:aDict['fType'] = {
             \'python':[5],
             \'cpp':[2],'java':[2],'javascript':[2],'js':[2],'go':[2],
             \'css':[3],'c':[3],'h':[3],'pc':[3],
-            \'htm':[4,2],'html':[4,2],'xml':[4],'xhtml':[4,2],'tpl':[4,2],
+            \'htm':[4,2],'html':[4,2],'xml':[4],'xhtml':[4,2],'tpl':[4,2],'htmldjango':[4,2],
             \'ini':[5,6],'sh':[5],'conkyrc':[5],'list':[5],
             \'tex':[7],
             \'sql':[8]
