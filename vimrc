@@ -318,7 +318,7 @@ let g:DrChipTopLvlMenu = "Tools."
 " HTML indent
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
-" let g:html_indent_inctags = "body,head"
+let g:html_indent_inctags = "main"
 
 " Indexer
 "
