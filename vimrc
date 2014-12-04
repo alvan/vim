@@ -44,7 +44,7 @@ func! OpenBrowser(url)
     if has("win32") || has("win95") || has("win64") || has("win16")
         call system('explorer '.shellescape(a:url))
     else
-        call system('xdg-open '.shellescape(a:url) . ' &')
+        call system('xdg-open '.shellescape(a:url))
     endif
 endf
 
@@ -153,14 +153,6 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
-noremap <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
-            \set guioptions-=T <Bar>
-            \set guioptions+=m <Bar>
-            \else <Bar>
-            \set guioptions+=T <Bar>
-            \set guioptions+=m <Bar>
-            \endif<CR>
-
 noremap <C-w>= :MBEbf<CR>
 noremap <C-w>- :MBEbb<CR>
 
