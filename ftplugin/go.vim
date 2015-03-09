@@ -4,6 +4,7 @@ endif
 let b:did_local_ftplugin = 1
 
 setlocal bin
+setlocal noet
 
 " SuperTab
 if exists('*SuperTabSetDefaultCompletionType')
