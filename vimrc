@@ -312,6 +312,9 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 let g:html_indent_inctags = "main"
 
+" PHP indent
+let g:PHP_vintage_case_default_indent = 1
+
 " Indexer
 "
 let g:indexer_tagsDirname = $HOME.'/.vim_indexer_tags'
