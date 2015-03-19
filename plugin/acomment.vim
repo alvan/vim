@@ -67,10 +67,10 @@ vnoremap <silent> <leader>x <Esc>:'<,'>call <SID>AComment("CommentxRange")<Cr>
 " 脚本配置字典
 let s:aDict = {}
 "
-" 可在.vimrc文件中以函数 g:acommentSet() 定义字典 s:aDict 的内容
+" 可在.vimrc文件中以函数 g:ACommentSet() 定义字典 s:aDict 的内容
 "
-" 在函数 g:acommentSet() 中定义一个字典变量 g:acomment
-" function g:acommentSet()
+" 在函数 g:ACommentSet() 中定义一个字典变量 g:acomment
+" function g:ACommentSet()
 "     let g:acomment = {@key:@value, ...}
 " endf
 "
@@ -84,7 +84,7 @@ let s:aDict = {}
 "
 "
 " Example:
-" function g:acommentSet()
+" function g:ACommentSet()
 "     let g:acomment = {}
 "     let g:acomment["user"] = 'Alvan'
 "     let g:acomment['cTop'] = [
@@ -185,7 +185,7 @@ function s:CTop()
     if exists("g:acomment")
         if has_key(g:acomment,"cTop") &&
                     \type(g:acomment["cTop"]) == type([])
-            call g:acommentSet()
+            call g:ACommentSet()
             let s:aDict['cTop'] = g:acomment["cTop"]
         endif
     endif
@@ -205,7 +205,7 @@ function s:CBottom()
     if exists("g:acomment")
         if has_key(g:acomment,"cBottom") &&
                     \type(g:acomment["cBottom"]) == type("")
-            call g:acommentSet()
+            call g:ACommentSet()
             let s:aDict['cBottom'] = g:acomment["cBottom"]
         endif
     endif
@@ -232,7 +232,7 @@ function s:ReUrl()
 
     if exists("g:acomment")
         if has_key(g:acomment,"reUrl")
-            call g:acommentSet()
+            call g:ACommentSet()
             let index = len(g:acomment["reUrl"]) - 1
             while index >= 0 
                 call insert(s:aDict['reUrl'],g:acomment["reUrl"][index])
@@ -1073,10 +1073,10 @@ function s:InitA()
     if !exists("g:acommentStrictMode")
         let g:acommentStrictMode = 3
     endif
-    if exists("*g:acommentSet")
-        call g:acommentSet()
+    if exists("*g:ACommentSet")
+        call g:ACommentSet()
         if !exists("g:acomment")
-            echo "g:acommentSet函数定义错误，缺少g:acomment定义"
+            echo "g:ACommentSet函数定义错误，缺少g:acomment定义"
         elseif type(g:acomment) != type({})
             echo "g:acomment的设置出现错误，将忽略其值"
             unlet g:acomment
@@ -1092,7 +1092,7 @@ function s:InitA()
 
     " 插件使用者，缺省由脚本推测为主目录下的用户名或者undefind
     if exists("g:acomment")
-        call g:acommentSet()
+        call g:ACommentSet()
         if has_key(g:acomment,'user')
             let s:aDict['user'] = g:acomment['user']
         endif

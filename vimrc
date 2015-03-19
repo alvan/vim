@@ -84,10 +84,12 @@ set fencs=ucs-bom,utf-8,cp936,gb18030,gbk,gb2312
 
 set t_Co=256
 set background=dark
-if has("unix")
-    set guifont=YaHei\ Mono\ 10
+if has("mac")
+    set guifont=Yahei\ Mono:h12
+elseif has("unix")
+    set guifont=Yahei\ Mono\ 10
 else
-    set guifont=YaHei\ Mono:h10
+    set guifont=Yahei\ Mono:h10
 endif
 
 set laststatus=2
@@ -228,7 +230,7 @@ au BufNewFile,Bufread *.js,*.html,*.xhtml,*.phtml,*.shtml setlocal dictionary+=$
 "
 let g:acommentAutoIndent = 0
 let g:acommentStrictMode = 3
-func! g:acommentSet()
+func! g:ACommentSet()
     let g:acomment = {}
     let g:acomment["user"] = g:user
     let g:acomment['cTop'] = [
