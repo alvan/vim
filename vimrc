@@ -41,10 +41,14 @@ func! QuitIfNoWin()
 endf
 
 func! OpenBrowser(url)
+    let url = substitute(a:url, '[\r\n]', '', 'g')
+
     if has("win32") || has("win95") || has("win64") || has("win16")
-        call system('explorer '.shellescape(a:url))
+        call system('explorer '.shellescape(url))
+    elseif has("mac")
+        call system('open '.shellescape(url))
     else
-        call system('xdg-open '.shellescape(a:url))
+        call system('xdg-open '.shellescape(url))
     endif
 endf
 
