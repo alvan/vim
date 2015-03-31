@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2014-08-27
+"      Modified:  2015-03-31
 "
 " --}}}
 "
@@ -186,37 +186,9 @@ vnoremap <silent> <C-l> y:call OpenBrowser(@@=~'^\s*\(http\\|https\\|ftp\\|file\
 command! W w !sudo tee % > /dev/null
 
 " --------------------------------------------------------------------
-" Rtps
-" --------------------------------------------------------------------
-
-filetype off                 " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=$VIMDIR/bundle/Vundle.vim
-call vundle#begin()
-source $VIMDIR/bundles.conf
-call vundle#end()
-
-filetype plugin indent on    " required
-
-" --------------------------------------------------------------------
 " Conf
 " --------------------------------------------------------------------
-" *
-syntax on
 
-let g:solarized_menu = 0
-let g:solarized_italic = 0
-let g:solarized_termtrans = 1
-" let g:solarized_termcolors = 256
-colorscheme solarized
-
-" set langmenu=zh_CN.UTF-8
-" language messages zh_CN.utf-8
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-
-" --------------------------------------------------------------------
 " PHP
 "
 au Filetype php setlocal mps-=<:>
@@ -225,12 +197,12 @@ au BufNewFile,Bufread *.php,*.phtml setlocal dictionary+=$VIMDIR/dicts/php.txt
 
 hi link phpheredoc string
 
-" --------------------------------------------------------------------
 " JS
 "
 au BufNewFile,Bufread *.js,*.html,*.xhtml,*.phtml,*.shtml setlocal dictionary+=$VIMDIR/dicts/js.txt
 
 " --------------------------------------------------------------------
+
 " Acomment
 "
 let g:acommentAutoIndent = 0
@@ -359,6 +331,13 @@ let NERDTreeIgnore = ['\~$', '\.pyc$']
 "
 let g:snips_author = g:user
 
+" Solarized
+"
+let g:solarized_menu = 0
+let g:solarized_italic = 0
+let g:solarized_termtrans = 1
+" let g:solarized_termcolors = 256
+
 " Sparkup
 "
 let g:sparkupExecuteMapping = "<silent> <c-e>"
@@ -414,6 +393,30 @@ let g:vdebug_options['path_maps'] = {'/data/': $HOME.'/'}
 "
 let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_fmt_command = "goimports"
+
+" --------------------------------------------------------------------
+" Rtps
+" --------------------------------------------------------------------
+
+filetype off                 " required
+
+set rtp+=$VIMDIR/bundle/Vundle.vim
+call vundle#begin()
+source $VIMDIR/bundles.conf
+call vundle#end()
+
+filetype plugin indent on    " required
+
+" set langmenu=zh_CN.UTF-8
+" language messages zh_CN.utf-8
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+" --------------------------------------------------------------------
+" View
+" --------------------------------------------------------------------
+syntax on
+colorscheme solarized
 
 " --------------------------------------------------------------------
 " End of file : vimrc
