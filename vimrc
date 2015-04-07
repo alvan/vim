@@ -88,6 +88,9 @@ set fencs=ucs-bom,utf-8,cp936,gb18030,gbk,gb2312
 
 set t_Co=256
 set background=dark
+let g:colors_name = "solarized"
+" let g:colors_name = "calmar256"
+
 if has("mac")
     set guifont=Yahei\ Mono:h12
 elseif has("unix")
@@ -412,11 +415,6 @@ filetype plugin indent on    " required
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
-" --------------------------------------------------------------------
-" View
-" --------------------------------------------------------------------
 syntax on
-colorscheme solarized
-
 " --------------------------------------------------------------------
 " End of file : vimrc
