@@ -92,7 +92,7 @@ let g:colors_name = "solarized"
 " let g:colors_name = "calmar256"
 
 if has("mac")
-    set guifont=Yahei\ Mono:h12
+    set guifont=Yahei\ Mono:h13
 elseif has("unix")
     set guifont=Yahei\ Mono\ 10
 else
