@@ -299,6 +299,7 @@ let g:PHP_vintage_case_default_indent = 1
 
 " Indexer
 "
+" let g:indexer_backgroundDisabled = 1
 let g:indexer_tagsDirname = $HOME.'/.vim_indexer_tags'
 let g:indexer_indexerListFilename = $VIMDIR.'/indexer.conf'
 let g:indexer_changeCurDirIfVimprjFound = 0
