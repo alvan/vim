@@ -266,9 +266,10 @@ let g:autotagExcludeSuffixes = "tml.xml.text.txt"
 
 " CtrlP
 "
-" let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:16'
+let g:ctrlp_lazy_update = 1
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_match_window = 'order:ttb,max:16'
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_custom_ignore = {
             \ 'file': '\v\.(exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
