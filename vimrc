@@ -162,8 +162,8 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
-noremap <C-w>= :MBEbf<CR>
-noremap <C-w>- :MBEbb<CR>
+noremap <C-w>. :MBEbf<CR>
+noremap <C-w>, :MBEbb<CR>
 
 nnoremap <leader>wh :NERDTreeToggle<CR>
 nnoremap <leader>wk :MBEToggle<CR>
