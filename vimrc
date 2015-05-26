@@ -66,6 +66,7 @@ set vb t_vb=
 
 set confirm
 
+set gcr=a:block-blinkon0
 set nowrap
 set guioptions-=l
 set guioptions-=r
@@ -398,6 +399,11 @@ let g:vdebug_options['path_maps'] = {'/data/': $HOME.'/'}
 "
 let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_fmt_command = "goimports"
+
+" Wildfire
+let g:wildfire_objects = ["iw", "i'", 'i"', "i)", "i]", "i}", "ip", "it"]
+map <SPACE> <Plug>(wildfire-fuel)
+vmap <S-SPACE> <Plug>(wildfire-water)
 
 " --------------------------------------------------------------------
 " Rtps
