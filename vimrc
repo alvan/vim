@@ -66,7 +66,7 @@ set vb t_vb=
 
 set confirm
 
-set gcr=a:block-blinkon0
+" set gcr=a:block-blinkon0
 set nowrap
 set guioptions-=l
 set guioptions-=r
