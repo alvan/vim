@@ -348,7 +348,7 @@ let g:sparkupNextMapping = '<silent> <c-n>'
 
 " Startify
 "
-let g:startify_disable_at_vimenter = 1
+" let g:startify_disable_at_vimenter = 1
 
 " Supertab
 "
@@ -411,6 +411,7 @@ filetype off                 " required
 
 set rtp+=$VIMDIR/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 source $VIMDIR/bundles.conf
 call vundle#end()
 
