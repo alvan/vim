@@ -357,11 +357,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Syntastic
 "
-" let g:syntastic_error_symbol = "✗"
-" let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_error_symbol = "x"
+let g:syntastic_error_symbol = "*"
 let g:syntastic_warning_symbol = "!"
-let g:syntastic_stl_format = '[%E{x:%fe ~%e}%B{, }%W{!:%fw ~%w}]'
+let g:syntastic_stl_format = '[%E{*:%fe ~%e}%B{, }%W{!:%fw ~%w}]'
 let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
 
 " Tagbar
