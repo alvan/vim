@@ -101,7 +101,6 @@ else
 endif
 
 set laststatus=2
-" :h statusline
 set statusline=\ %F\ %Y\ %{&fileformat}\ %{&fileencoding}\ %{(&bomb?\"[BOM]\":\"\")}\ Row：\[%l/%L\ %<%P]\ Col：\[%c%V]\ \ %m\ %r
 
 set wildmenu
@@ -195,11 +194,7 @@ command! W w !sudo tee % > /dev/null
 
 " PHP
 "
-au Filetype php setlocal mps-=<:>
-au BufNewFile,Bufread *.php setlocal mps-=<:>
 au BufNewFile,Bufread *.php,*.phtml setlocal dictionary+=$VIMDIR/dicts/php.txt
-
-hi link phpheredoc string
 
 " JS
 "
@@ -261,6 +256,7 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.shtml"
 
 " Ctags
+"
 let g:ctags_statusline = 1
 let g:autotagDisabled = 1
 let g:autotagExcludeSuffixes = "tml.xml.text.txt"
@@ -292,6 +288,7 @@ let g:ctrlp_prompt_mappings = {
 let g:DrChipTopLvlMenu = "Tools."
 
 " HTML indent
+"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 let g:html_indent_inctags = "main"
@@ -368,6 +365,7 @@ let g:syntastic_stl_format = '[%E{x:%fe ~%e}%B{, }%W{!:%fw ~%w}]'
 let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
 
 " Tagbar
+"
 let g:tagbar_left = 0
 let g:tagbar_sort = 0
 let g:tagbar_width = 30
@@ -380,7 +378,6 @@ let g:tagbar_map_togglefold = 'za'
 " UltiSnips
 "
 let g:UltiSnipsSnippetDirectories = ["snips", "UltiSnips"]
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger = "<tab>"
 " let g:UltiSnipsJumpForwardTrigger = "<tab>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
@@ -401,6 +398,7 @@ let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_fmt_command = "goimports"
 
 " Wildfire
+"
 let g:wildfire_objects = ["iw", "i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 map <SPACE> <Plug>(wildfire-fuel)
 vmap <S-SPACE> <Plug>(wildfire-water)
