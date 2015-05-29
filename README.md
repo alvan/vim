@@ -1,7 +1,10 @@
-Here is Alvan's vim configurations.
+Alvan's vim configurations.
 
 Screenshots
 -----------
+
+MacVim Go, with no scrollbar:
+![vimgo.png](images/20150529/vimgo.png)
 
 GVim PHP help doc, with no scrollbar:
 ![doc.png](images/20140730/doc.png)
