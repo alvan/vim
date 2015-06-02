@@ -269,7 +269,7 @@ let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_match_window = 'order:ttb,max:16'
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_custom_ignore = {
-            \ 'file': '\v\.(exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
+            \ 'file': '\v\.(pkg|dmg|exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
             \ }
 let g:ctrlp_map = '?'
 let g:ctrlp_cmd = 'CtrlPMixed'
@@ -325,10 +325,11 @@ let g:miniBufExplDebugLevel = 0
 
 " NERDTree
 "
+let NERDTreeIgnore = ['\~$', '\.pyc$', '\.DS_Store']
 let g:NERDTreeDirArrows = 0
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeAutoCenter = 1
-let NERDTreeIgnore = ['\~$', '\.pyc$']
+let g:NERDTreeHijackNetrw = 0
 
 " Snippets
 "
@@ -349,6 +350,10 @@ let g:sparkupNextMapping = '<silent> <c-n>'
 " Startify
 "
 " let g:startify_disable_at_vimenter = 1
+autocmd User Startified setlocal buftype=
+let g:ctrlp_reuse_window = 'startify'
+let g:startify_change_to_dir = 1
+let g:startify_bookmarks = [ $VIMDIR . '/vimrc' ]
 
 " Supertab
 "
