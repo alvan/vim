@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-03-31
+"      Modified:  2015-06-03
 "
 " --}}}
 "
@@ -17,7 +17,7 @@ if has("unix")
     let $VIMDIR = $HOME."/.vim"
 else
     let $VIMDIR = $VIM."/vimfiles"
-endif
+en
 
 " --------------------------------------------------------------------
 " Func
@@ -28,7 +28,7 @@ func! QuitIfNoWin()
         let t = getwinvar(l, '&filetype')
         if t != "tagbar" && t != "minibufexpl" && t != "nerdtree"
             return
-        endif
+        en
 
         let l -= 1
     endw
@@ -37,7 +37,7 @@ func! QuitIfNoWin()
         exec 'qa'
     else
         exec 'tabclose'
-    endif
+    en
 endf
 
 func! OpenBrowser(url)
@@ -49,7 +49,7 @@ func! OpenBrowser(url)
         call system('open '.shellescape(url))
     else
         call system('xdg-open '.shellescape(url))
-    endif
+    en
 endf
 
 " --------------------------------------------------------------------
@@ -57,7 +57,7 @@ endf
 " --------------------------------------------------------------------
 if has('mouse')
     set mouse=a
-endif
+en
 set clipboard+=unnamed
 
 set noeb
@@ -98,7 +98,7 @@ elseif has("unix")
     set guifont=Yahei\ Mono\ 10
 else
     set guifont=Yahei\ Mono:h10
-endif
+en
 
 set laststatus=2
 set statusline=\ %F\ %Y\ %{&fileformat}\ %{&fileencoding}\ %{(&bomb?\"[BOM]\":\"\")}\ Row：\[%l/%L\ %<%P]\ Col：\[%c%V]\ \ %m\ %r
@@ -155,7 +155,7 @@ set complete-=k complete+=k
 set tags+=tags;
 
 " last-position-jump
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | en
 
 au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 
@@ -186,7 +186,9 @@ vnoremap <silent> <C-l> y:call OpenBrowser(@@=~'^\s*\(http\\|https\\|ftp\\|file\
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
-command! W w !sudo tee % > /dev/null
+if has("unix")
+    command! W w !sudo tee % > /dev/null
+en
 
 " --------------------------------------------------------------------
 " Conf
@@ -239,7 +241,7 @@ let g:airline_mode_map = {
             \ }
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
-endif
+en
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
@@ -389,7 +391,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 "
 if !exists("g:vdebug_options")
     let g:vdebug_options = {}
-endif
+en
 " let g:vdebug_options['server'] = '192.168.56.1'
 let g:vdebug_options['server'] = ''
 let g:vdebug_options['port'] = 9001
