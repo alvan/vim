@@ -331,7 +331,7 @@ let NERDTreeIgnore = ['\~$', '\.pyc$', '\.DS_Store']
 let g:NERDTreeDirArrows = 0
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeAutoCenter = 1
-let g:NERDTreeHijackNetrw = 0
+" let g:NERDTreeHijackNetrw = 0
 
 " Snippets
 "
