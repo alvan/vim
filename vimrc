@@ -368,6 +368,7 @@ let g:syntastic_error_symbol = "*"
 let g:syntastic_warning_symbol = "!"
 let g:syntastic_stl_format = '[%E{*:%fe ~%e}%B{, }%W{!:%fw ~%w}]'
 let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
+" let g:syntastic_ignore_files = ['\m\c\.go$']
 
 " Tagbar
 "
