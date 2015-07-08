@@ -191,7 +191,7 @@ if has("unix")
 en
 
 " au BufReadPost quickfix  setlocal modifiable
-            " \ | silent nnoremap o <CR>
+            " \ | nnoremap <buffer> <silent> o <CR>
             " \ | setlocal nomodifiable
 
 " --------------------------------------------------------------------
