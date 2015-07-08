@@ -162,16 +162,16 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
-noremap <C-w>. :MBEbf<CR>
-noremap <C-w>, :MBEbb<CR>
+nmap <C-w>. :MBEbf<CR>
+nmap <C-w>, :MBEbb<CR>
 
-nnoremap <leader>wh :NERDTreeToggle<CR>
-nnoremap <leader>wk :MBEToggle<CR>
-nnoremap <leader>wl :TagbarToggle<CR>
-nnoremap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
+nmap <leader>wh :NERDTreeToggle<CR>
+nmap <leader>wk :MBEToggle<CR>
+nmap <leader>wl :TagbarToggle<CR>
+nmap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
-vnoremap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-vnoremap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vmap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -182,7 +182,7 @@ inoremap {<CR> {}<ESC>i<CR><ESC>O
 
 " visually select the full path of a local html file or a URL
 " and press <C-l> to open it.
-vnoremap <silent> <C-l> y:call OpenBrowser(@@=~'^\s*\(http\\|https\\|ftp\\|file\):/'?@@:('http://'.@@))<CR>
+vmap <silent> <C-l> y:call OpenBrowser(@@=~'^\s*\(http\\|https\\|ftp\\|file\):/'?@@:('http://'.@@))<CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
@@ -190,9 +190,8 @@ if has("unix")
     command! W w !sudo tee % > /dev/null
 en
 
-" au BufReadPost quickfix  setlocal modifiable
-            " \ | nnoremap <buffer> <silent> o <CR>
-            " \ | setlocal nomodifiable
+" press o to open file in quickfix window
+" au BufReadPost quickfix nmap <buffer> <silent> o <CR>
 
 " --------------------------------------------------------------------
 " Conf
