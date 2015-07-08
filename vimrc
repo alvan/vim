@@ -26,7 +26,7 @@ func! QuitIfNoWin()
     let l = winnr('$')
     while l >= 0
         let t = getwinvar(l, '&filetype')
-        if t != "tagbar" && t != "minibufexpl" && t != "nerdtree"
+        if t != "tagbar" && t != "minibufexpl" && t != "nerdtree" && t != "qf"
             return
         en
 
@@ -189,6 +189,10 @@ vnoremap <silent> <C-l> y:call OpenBrowser(@@=~'^\s*\(http\\|https\\|ftp\\|file\
 if has("unix")
     command! W w !sudo tee % > /dev/null
 en
+
+" au BufReadPost quickfix  setlocal modifiable
+            " \ | silent nnoremap o <CR>
+            " \ | setlocal nomodifiable
 
 " --------------------------------------------------------------------
 " Conf
