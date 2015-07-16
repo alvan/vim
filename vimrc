@@ -399,7 +399,7 @@ en
 " let g:vdebug_options['server'] = '192.168.56.1'
 let g:vdebug_options['server'] = ''
 let g:vdebug_options['port'] = 9001
-let g:vdebug_options['path_maps'] = {'/data/': $HOME.'/'}
+let g:vdebug_options['path_maps'] = {'/data/':$HOME.'/', '/media/psf/Home/':$HOME.'/'}
 
 " Vim-Go
 "
