@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-06-03
+"      Modified:  2015-07-20
 "
 " --}}}
 "
@@ -37,18 +37,6 @@ func! QuitIfNoWin()
         exec 'qa'
     else
         exec 'tabclose'
-    en
-endf
-
-func! OpenBrowser(url)
-    let url = substitute(a:url, '[\r\n]', '', 'g')
-
-    if has("win32") || has("win95") || has("win64") || has("win16")
-        call system('explorer '.shellescape(url))
-    elseif has("mac")
-        call system('open '.shellescape(url))
-    else
-        call system('xdg-open '.shellescape(url))
     en
 endf
 
@@ -179,10 +167,6 @@ inoremap ` ``<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap {<CR> {}<ESC>i<CR><ESC>O
-
-" visually select the full path of a local html file or a URL
-" and press <C-l> to open it.
-vmap <silent> <C-l> y:call OpenBrowser(@@=~'^\s*\(http\\|https\\|ftp\\|file\):/'?@@:('http://'.@@))<CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
