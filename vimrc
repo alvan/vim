@@ -153,6 +153,8 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 nmap <C-w>. :MBEbf<CR>
 nmap <C-w>, :MBEbb<CR>
 
+nmap <leader>ts :ts<CR>
+
 nmap <leader>wh :NERDTreeToggle<CR>
 nmap <leader>wk :MBEToggle<CR>
 nmap <leader>wl :TagbarToggle<CR>
@@ -161,12 +163,12 @@ nmap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 vmap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ` ``<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap {<CR> {}<ESC>i<CR><ESC>O
+" inoremap " ""<left>
+" inoremap ' ''<left>
+" inoremap ` ``<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap {<CR> {}<ESC>i<CR><ESC>O
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
@@ -238,6 +240,11 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#whitespace#enabled = 0
+
+
+" AutoPairs
+"
+let g:AutoPairsShortcutToggle = '<leader>ai'
 
 " Closetag
 "
