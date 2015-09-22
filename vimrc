@@ -211,9 +211,7 @@ endf
 
 " Airline
 "
-let g:airline_theme = 'lucius'
-" let g:airline_theme = 'zenburn'
-" let g:airline_theme = 'solarized'
+" let g:airline_theme = 
 let g:airline_powerline_fonts = 1
 let g:airline_mode_map = {
             \ '__' : '-',
@@ -228,9 +226,7 @@ let g:airline_mode_map = {
             \ 'S'  : 'S⋅L',
             \ '' : 'S⋅B',
             \ }
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-en
+let g:airline_symbols = {}
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
@@ -334,9 +330,7 @@ let g:snips_author = g:user
 " Solarized
 "
 let g:solarized_menu = 0
-let g:solarized_italic = 0
 let g:solarized_termtrans = 1
-" let g:solarized_termcolors = 256
 
 " Sparkup
 "
