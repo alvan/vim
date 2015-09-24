@@ -241,6 +241,7 @@ let g:airline#extensions#whitespace#enabled = 0
 " AutoPairs
 "
 let g:AutoPairsShortcutToggle = '<leader>ai'
+let g:AutoPairsMultilineClose = 0
 
 " Closetag
 "
