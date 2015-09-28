@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-07-20
+"      Modified:  2015-09-28
 "
 " --}}}
 "
@@ -183,16 +183,6 @@ en
 " Conf
 " --------------------------------------------------------------------
 
-" PHP
-"
-au BufNewFile,Bufread *.php,*.phtml setlocal dictionary+=$VIMDIR/dicts/php.txt
-
-" JS
-"
-au BufNewFile,Bufread *.js,*.html,*.xhtml,*.phtml,*.shtml setlocal dictionary+=$VIMDIR/dicts/js.txt
-
-" --------------------------------------------------------------------
-
 " Acomment
 "
 let g:acommentAutoIndent = 0
@@ -274,6 +264,15 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtSelectMove("k")':   ['<s-tab>', '<c-k>', '<up>'],
             \ 'ToggleFocus()':        [],
             \ 'PrtExpandDir()':       [],
+            \ }
+
+" Dicts
+"
+let g:dict_spec = {
+            \ 'vim': ['vim'],
+            \ 'php': ['php'], '*.phtml': ['php', 'js'],
+            \ '*.html': ['js'],
+            \ 'javascript': ['js'],
             \ }
 
 " DrawIt
