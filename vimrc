@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-09-28
+"      Modified:  2015-10-14
 "
 " --}}}
 "
@@ -38,6 +38,24 @@ func! QuitIfNoWin()
     else
         exec 'tabclose'
     en
+endf
+
+func! AutoPairMap(...)
+    let map = {
+                \'"': '""<left>',
+                \"'": "''<left>",
+                \'`': '``<left>',
+                \'(': '()<left>',
+                \'[': '[]<left>',
+                \'{<CR>': '{}<ESC>i<CR><ESC>O'
+                \}
+    for key in keys(map)
+        if (a:0 > 0 && a:1 == 1) || mapcheck(key, 'i') == ""
+            exec "inoremap " . key . " " . map[key]
+        else
+            exec "iunmap " . key
+        endif
+    endfor
 endf
 
 " --------------------------------------------------------------------
@@ -163,12 +181,8 @@ nmap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 vmap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
-" inoremap " ""<left>
-" inoremap ' ''<left>
-" inoremap ` ``<left>
-" inoremap ( ()<left>
-" inoremap [ []<left>
-" inoremap {<CR> {}<ESC>i<CR><ESC>O
+nmap <leader>ai :call AutoPairMap()<CR>
+call AutoPairMap(1)
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
