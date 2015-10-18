@@ -23,14 +23,13 @@ en
 " Func
 " --------------------------------------------------------------------
 func! QuitIfNoWin()
-    let l = winnr('$')
-    while l >= 0
-        let t = getwinvar(l, '&filetype')
-        if t != "tagbar" && t != "minibufexpl" && t != "nerdtree" && t != "qf"
+    let n = winnr('$')
+    while n >= 0
+        if getwinvar(n, '&modifiable')
             return
         en
 
-        let l -= 1
+        let n -= 1
     endw
 
     if tabpagenr("$") == 1
@@ -54,7 +53,7 @@ func! AutoPairMap(...)
             exec "inoremap " . key . " " . map[key]
         else
             exec "iunmap " . key
-        endif
+        en
     endfor
 endf
 
