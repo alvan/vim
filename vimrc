@@ -25,7 +25,16 @@ en
 func! QuitIfNoWin()
     let n = winnr('$')
     while n >= 0
-        if getwinvar(n, '&modifiable')
+        " if getwinvar(n, '&modifiable')
+                    " \ || getwinvar(n, '&filetype') == 'startify'
+            " return
+        " en
+
+        let t = getwinvar(n, '&filetype')
+        if t != "nerdtree"
+                    \ && t != "minibufexpl"
+                    \ && t != "tagbar"
+                    \ && t != "qf"
             return
         en
 
