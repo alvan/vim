@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-10-14
+"      Modified:  2015-12-06
 "
 " --}}}
 "
@@ -22,14 +22,15 @@ en
 " --------------------------------------------------------------------
 " Func
 " --------------------------------------------------------------------
+func! LastPosJump()
+    if line("'\"") > 1 && line("'\"") <= line("$")
+        exe "normal! g`\""
+    en
+endf
+
 func! QuitIfNoWin()
     let n = winnr('$')
     while n >= 0
-        " if getwinvar(n, '&modifiable')
-                    " \ || getwinvar(n, '&filetype') == 'startify'
-            " return
-        " en
-
         let t = getwinvar(n, '&filetype')
         if t != "nerdtree"
                     \ && t != "minibufexpl"
@@ -42,9 +43,9 @@ func! QuitIfNoWin()
     endw
 
     if tabpagenr("$") == 1
-        exec 'qa'
+        exe 'qa'
     else
-        exec 'tabclose'
+        exe 'tabclose'
     en
 endf
 
@@ -59,9 +60,9 @@ func! AutoPairMap(...)
                 \}
     for key in keys(map)
         if (a:0 > 0 && a:1 == 1) || mapcheck(key, 'i') == ""
-            exec "inoremap " . key . " " . map[key]
+            exe "inoremap " . key . " " . map[key]
         else
-            exec "iunmap " . key
+            exe "iunmap " . key
         en
     endfor
 endf
@@ -168,8 +169,7 @@ set complete-=k complete+=k
 
 set tags+=tags;
 
-" last-position-jump
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | en
+au BufReadPost * call LastPosJump()
 
 au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 
@@ -199,7 +199,7 @@ if has("unix")
 en
 
 " press o to open file in quickfix window
-" au BufReadPost quickfix nmap <buffer> <silent> o <CR>
+au BufReadPost quickfix nmap <buffer> <silent> o <CR>
 
 " --------------------------------------------------------------------
 " Conf
