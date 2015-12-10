@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-12-06
+"      Modified:  2015-12-10
 "
 " --}}}
 "
@@ -359,10 +359,11 @@ let g:sparkupNextMapping = '<silent> <c-n>'
 " Startify
 "
 " let g:startify_disable_at_vimenter = 1
-autocmd User Startified setlocal buftype=
 let g:ctrlp_reuse_window = 'startify'
 let g:startify_change_to_dir = 1
 let g:startify_bookmarks = [ $VIMDIR . '/vimrc' ]
+autocmd User Startified setlocal buftype=
+autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
 
 " Supertab
 "
