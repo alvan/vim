@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-12-10
+"      Modified:  2015-12-11
 "
 " --}}}
 "
@@ -249,22 +249,10 @@ let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#whitespace#enabled = 0
 
-
-" AutoPairs
-"
-let g:AutoPairsShortcutToggle = '<leader>ai'
-let g:AutoPairsMultilineClose = 0
-
 " Closetag
 "
 " let g:closetag_use_xhtml = 0
 let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.shtml"
-
-" Ctags
-"
-let g:ctags_statusline = 1
-let g:autotagDisabled = 1
-let g:autotagExcludeSuffixes = "tml.xml.text.txt"
 
 " CtrlP
 "
