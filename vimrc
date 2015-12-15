@@ -176,9 +176,6 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
-nmap <C-w>. :MBEbf<CR>
-nmap <C-w>, :MBEbb<CR>
-
 nmap <leader>ts :ts<CR>
 
 nmap <leader>wh :NERDTreeToggle<CR>
@@ -247,7 +244,12 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 let g:airline_symbols.space = "\ua0"
+
 let g:airline#extensions#whitespace#enabled = 0
+
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
 
 " Closetag
 "
@@ -322,8 +324,12 @@ let g:markology_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 " MiniBufExpl
 "
-" let g:miniBufExplorerMoreThanOne = 1
+" let g:loaded_minibufexplorer = 1
 let g:miniBufExplDebugLevel = 0
+if !exists('g:loaded_minibufexplorer')
+    nmap <C-w>. :MBEbf<CR>
+    nmap <C-w>, :MBEbb<CR>
+endif
 
 " NERDTree
 "
