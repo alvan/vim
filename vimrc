@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-12-11
+"      Modified:  2015-12-15
 "
 " --}}}
 "
@@ -398,12 +398,6 @@ let g:vdebug_options['path_maps'] = {'/data/':$HOME.'/', '/media/sf_':$HOME.'/',
 "
 let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_fmt_command = "goimports"
-
-" Wildfire
-"
-let g:wildfire_objects = ["iw", "i'", 'i"', "i)", "i]", "i}", "ip", "it"]
-map <SPACE> <Plug>(wildfire-fuel)
-vmap <S-SPACE> <Plug>(wildfire-water)
 
 " --------------------------------------------------------------------
 " Rtps
