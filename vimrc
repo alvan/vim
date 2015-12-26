@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-12-15
+"      Modified:  2015-12-26
 "
 " --}}}
 "
@@ -302,13 +302,15 @@ let g:PHP_vintage_case_default_indent = 1
 
 " Indexer
 "
-" let g:indexer_backgroundDisabled = 1
-let g:indexer_tagsDirname = $HOME.'/.vim_indexer_tags'
+au BufRead,BufNewFile indexer.conf setfiletype indexer_files
 let g:indexer_indexerListFilename = $VIMDIR.'/indexer.conf'
+let g:indexer_tagsDirname = $HOME.'/.vim_indexer_tags'
 let g:indexer_changeCurDirIfVimprjFound = 0
 " let g:indexer_ctagsJustAppendTagsAtFileSave = 1
 " let g:indexer_debugLogLevel = 3
 let g:indexer_disableCtagsWarning = 1
+" let g:indexer_backgroundDisabled = 1
+
 
 " Javascript indent
 "
@@ -411,6 +413,7 @@ let g:go_fmt_command = "goimports"
 
 filetype off                 " required
 
+au BufRead,BufNewFile bundles.conf setfiletype vim
 set rtp+=$VIMDIR/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
@@ -421,8 +424,8 @@ filetype plugin indent on    " required
 
 " set langmenu=zh_CN.UTF-8
 " language messages zh_CN.utf-8
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
+" source $VIMRUNTIME/delmenu.vim
+" source $VIMRUNTIME/menu.vim
 
 syntax on
 " --------------------------------------------------------------------
