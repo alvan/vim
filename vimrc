@@ -358,8 +358,8 @@ let g:sparkupNextMapping = '<silent> <c-n>'
 let g:ctrlp_reuse_window = 'startify'
 let g:startify_change_to_dir = 1
 let g:startify_bookmarks = [ $VIMDIR . '/vimrc' ]
-autocmd User Startified setlocal buftype=
-autocmd User Startified nmap <buffer> o <plug>(startify-open-buffers)
+au User Startified setlocal buftype=
+au User Startified nmap <buffer> o <plug>(startify-open-buffers)
 
 " Supertab
 "
@@ -413,11 +413,10 @@ let g:go_fmt_command = "goimports"
 
 filetype off                 " required
 
-au BufRead,BufNewFile bundles.conf setfiletype vim
 set rtp+=$VIMDIR/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-source $VIMDIR/bundles.conf
+source $VIMDIR/bundle.vimrc
 call vundle#end()
 
 filetype plugin indent on    " required
