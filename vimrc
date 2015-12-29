@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-12-26
+"      Modified:  2015-12-29
 "
 " --}}}
 "
@@ -15,8 +15,10 @@ let g:user = 'Alvan'
 
 if has("unix")
     let $VIMDIR = $HOME."/.vim"
+    let $VIMDOT = '.'
 else
     let $VIMDIR = $VIM."/vimfiles"
+    let $VIMDOT = '_'
 en
 
 " --------------------------------------------------------------------
@@ -304,7 +306,7 @@ let g:PHP_vintage_case_default_indent = 1
 "
 au BufRead,BufNewFile indexer.conf setfiletype indexer_files
 let g:indexer_indexerListFilename = $VIMDIR.'/indexer.conf'
-let g:indexer_tagsDirname = $HOME.'/.vim_indexer_tags'
+let g:indexer_tagsDirname = $HOME.'/'.$VIMDOT.'vim_indexer_tags'
 let g:indexer_changeCurDirIfVimprjFound = 0
 " let g:indexer_ctagsJustAppendTagsAtFileSave = 1
 " let g:indexer_debugLogLevel = 3
@@ -358,6 +360,8 @@ let g:sparkupNextMapping = '<silent> <c-n>'
 let g:ctrlp_reuse_window = 'startify'
 let g:startify_change_to_dir = 1
 let g:startify_bookmarks = [ $VIMDIR . '/vimrc' ]
+let g:startify_session_dir = $HOME.'/'.$VIMDOT.'vim_startify_ses'
+
 au User Startified setlocal buftype=
 au User Startified nmap <buffer> o <plug>(startify-open-buffers)
 
