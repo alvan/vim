@@ -339,6 +339,7 @@ endif
 "
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = ['\~$', '\.pyc$', '\.DS_Store']
+let g:NERDTreeHijackNetrw = 0
 
 " Snippets
 "
