@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-12-29
+"      Modified:  2015-12-30
 "
 " --}}}
 "
@@ -107,7 +107,6 @@ set fencs=ucs-bom,utf-8,cp936,gb18030,gbk,gb2312
 set t_Co=256
 set background=dark
 let g:colors_name = "solarized"
-" let g:colors_name = "calmar256"
 
 if has("mac")
     set guifont=Yahei\ Mono:h13
