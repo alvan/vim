@@ -179,6 +179,8 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 " --------------------------------------------------------------------
 nmap <leader>ts :ts<CR>
 
+nmap <leader>ms :marks<CR>
+
 nmap <leader>wh :NERDTreeToggle<CR>
 nmap <leader>wk :MBEToggle<CR>
 nmap <leader>wl :TagbarToggle<CR>
@@ -320,10 +322,6 @@ let g:js_indent_log = 0
 " Markdown
 "
 let g:vim_markdown_folding_disabled = 1
-
-" Markology
-"
-let g:markology_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 " MiniBufExpl
 "
