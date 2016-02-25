@@ -24,9 +24,39 @@ en
 " --------------------------------------------------------------------
 " Func
 " --------------------------------------------------------------------
-func! LastPosJump()
+func! GotoExitPos()
     if line("'\"") > 1 && line("'\"") <= line("$")
         exe "normal! g`\""
+    en
+endf
+
+func! GotoMarkPos()
+    redir => mkls
+    silent marks
+    redir END
+
+    let next = ''
+    let lnno = line('.')
+    for line in split(mkls, '\n')
+        if line =~ '^\s*[a-z]\s\+\d'
+            let mark = split(line, '\s\+')[0]
+            let mkln = line("'" . mark)
+            let nkln = line("'" . next)
+
+            if mkln > lnno
+                if next == '' || nkln > mkln || nkln < lnno
+                    let next = mark
+                en
+            elseif mkln < lnno
+                if next == '' || (nkln > mkln && nkln < lnno)
+                    let next = mark
+                en
+            endif
+        en
+    endfor
+
+    if next != ''
+        exe "normal! '" . next
     en
 endf
 
@@ -170,7 +200,7 @@ set complete-=k complete+=k
 
 set tags+=tags;
 
-au BufReadPost * call LastPosJump()
+au BufReadPost * call GotoExitPos()
 
 au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 
@@ -180,6 +210,7 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 nmap <leader>ts :ts<CR>
 
 nmap <leader>ms :marks<CR>
+nmap <leader>m<space> :delm!<CR>
 
 nmap <leader>wh :NERDTreeToggle<CR>
 nmap <leader>wk :MBEToggle<CR>
@@ -191,6 +222,8 @@ vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 nmap <leader>ai :call AutoPairMap()<CR>
 call AutoPairMap(1)
+
+nmap <silent> "" :call GotoMarkPos()<CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
@@ -330,7 +363,7 @@ let g:miniBufExplDebugLevel = 0
 if !exists('g:loaded_minibufexplorer')
     nmap <C-w>. :MBEbf<CR>
     nmap <C-w>, :MBEbb<CR>
-endif
+en
 
 " NERDTree
 "
