@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2015-12-30
+"      Modified:  2016-02-27
 "
 " --}}}
 "
@@ -24,13 +24,13 @@ en
 " --------------------------------------------------------------------
 " Func
 " --------------------------------------------------------------------
-func! GotoExitPos()
+func! JumpExitPos()
     if line("'\"") > 1 && line("'\"") <= line("$")
         exe "normal! g`\""
     en
 endf
 
-func! GotoMarkPos()
+func! JumpMarkPos()
     redir => mkls
     silent marks
     redir END
@@ -200,7 +200,7 @@ set complete-=k complete+=k
 
 set tags+=tags;
 
-au BufReadPost * call GotoExitPos()
+au BufReadPost * call JumpExitPos()
 
 au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 
@@ -223,7 +223,7 @@ vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 nmap <leader>ai :call AutoPairMap()<CR>
 call AutoPairMap(1)
 
-nmap <silent> "" :call GotoMarkPos()<CR>
+nmap <silent> "" :call JumpMarkPos()<CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
