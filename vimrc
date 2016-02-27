@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2016-02-27
+"      Modified:  2016-02-28
 "
 " --}}}
 "
@@ -24,39 +24,9 @@ en
 " --------------------------------------------------------------------
 " Func
 " --------------------------------------------------------------------
-func! JumpExitPos()
+func! GotoExitPos()
     if line("'\"") > 1 && line("'\"") <= line("$")
         exe "normal! g`\""
-    en
-endf
-
-func! JumpMarkPos()
-    redir => mkls
-    silent marks
-    redir END
-
-    let next = ''
-    let lnno = line('.')
-    for line in split(mkls, '\n')
-        if line =~ '^\s*[a-z]\s\+\d'
-            let mark = split(line, '\s\+')[0]
-            let mkln = line("'" . mark)
-            let nkln = line("'" . next)
-
-            if mkln > lnno
-                if next == '' || nkln > mkln || nkln < lnno
-                    let next = mark
-                en
-            elseif mkln < lnno
-                if next == '' || (nkln > mkln && nkln < lnno)
-                    let next = mark
-                en
-            endif
-        en
-    endfor
-
-    if next != ''
-        exe "normal! '" . next
     en
 endf
 
@@ -200,7 +170,7 @@ set complete-=k complete+=k
 
 set tags+=tags;
 
-au BufReadPost * call JumpExitPos()
+au BufReadPost * call GotoExitPos()
 
 au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 
@@ -222,8 +192,6 @@ vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 nmap <leader>ai :call AutoPairMap()<CR>
 call AutoPairMap(1)
-
-nmap <silent> "" :call JumpMarkPos()<CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
