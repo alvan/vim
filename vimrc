@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2016-02-28
+"      Modified:  2016-03-21
 "
 " --}}}
 "
@@ -356,6 +356,7 @@ let g:sparkupNextMapping = '<silent> <c-n>'
 " Startify
 "
 " let g:startify_disable_at_vimenter = 1
+let g:startify_custom_header = []
 let g:ctrlp_reuse_window = 'startify'
 let g:startify_change_to_dir = 1
 let g:startify_bookmarks = [ $VIMDIR . '/vimrc' ]
