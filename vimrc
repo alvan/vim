@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2016-03-21
+"      Modified:  2016-03-30
 "
 " --}}}
 "
@@ -265,21 +265,21 @@ let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.shtml"
 let g:ctrlp_lazy_update = 1
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_match_window = 'order:ttb,max:16'
 let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_match_window = 'order:ttb,max:16'
 let g:ctrlp_custom_ignore = {
             \ 'file': '\v\.(pkg|dmg|exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
             \ }
 let g:ctrlp_map = '?'
 let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_extensions = ['tag', 'mixed', 'modified', 'quickfix']
+let g:ctrlp_extensions = ['quickfix', 'mark', 'tag', 'mixed', 'modified']
 let g:ctrlp_root_markers = ['root.dir', '.root.dir', '.git', '.hg']
 let g:ctrlp_prompt_mappings = {
             \ 'PrtBS()':              ['<bs>'],
             \ 'PrtSelectMove("j")':   ['<tab>', '<c-j>', '<down>'],
             \ 'PrtSelectMove("k")':   ['<s-tab>', '<c-k>', '<up>'],
-            \ 'ToggleFocus()':        [],
-            \ 'PrtExpandDir()':       [],
+            \ 'ToggleFocus()':        [''],
+            \ 'PrtExpandDir()':       [''],
             \ }
 
 " Dicts
