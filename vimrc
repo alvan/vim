@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2016-03-30
+"      Modified:  2016-04-06
 "
 " --}}}
 "
@@ -262,7 +262,7 @@ let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.shtml"
 
 " CtrlP
 "
-let g:ctrlp_lazy_update = 1
+" let g:ctrlp_lazy_update = 1
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
@@ -419,7 +419,7 @@ filetype off                 " required
 
 set rtp+=$VIMDIR/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 source $VIMDIR/bundle.vimrc
 call vundle#end()
 
