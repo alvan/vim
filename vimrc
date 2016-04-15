@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2016-04-06
+"      Modified:  2016-04-15
 "
 " --}}}
 "
@@ -295,6 +295,12 @@ let g:dict_spec = {
 "
 let g:DrChipTopLvlMenu = "Tools."
 
+" Grep
+"
+" let g:Grep_Default_Options = '-I'
+let g:Grep_Skip_Dirs = '.git RCS CVS SCCS'
+let g:Grep_Skip_Files = '*~ *,v s.* *.pyc *.swp'
+
 " HTML indent
 "
 let g:html_indent_script1 = "inc"
@@ -424,11 +430,6 @@ source $VIMDIR/bundle.vimrc
 call vundle#end()
 
 filetype plugin indent on    " required
-
-" set langmenu=zh_CN.UTF-8
-" language messages zh_CN.utf-8
-" source $VIMRUNTIME/delmenu.vim
-" source $VIMRUNTIME/menu.vim
 
 syntax on
 " --------------------------------------------------------------------
