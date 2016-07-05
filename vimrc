@@ -224,7 +224,7 @@ au BufReadPost quickfix nmap <buffer> <silent> o <CR>
 
 " AComment
 "
-let g:acomment_define = {'php': '//'}
+let g:acomment_define = {'php': '// %s'}
 
 " Airline
 "
