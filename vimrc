@@ -36,6 +36,15 @@ if !exists('g:vimer') || g:vimer == ''
     en
 en
 
+if !exists('g:email') || g:email == ''
+    let g:email = ''
+
+    if executable('git') > 0
+        let g:email = substitute(system('git config --get user.email')
+                    \, '[\r\n]', '', 'g')
+    en
+en
+
 " --------------------------------------------------------------------
 " Func
 " --------------------------------------------------------------------
@@ -352,6 +361,7 @@ let g:NERDTreeCascadeOpenSingleChildDir = 0
 " Snippets
 "
 let g:snips_author = g:vimer
+let g:snips_author_email = g:email
 
 " Solarized
 "
