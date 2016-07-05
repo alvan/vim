@@ -1,4 +1,4 @@
-" == "acomment" == {{{
+" == "Acomment" == {{{
 "
 "          File:  vimrc
 "        Author:  Alvan
@@ -222,21 +222,9 @@ au BufReadPost quickfix nmap <buffer> <silent> o <CR>
 " Conf
 " --------------------------------------------------------------------
 
-" Acomment
+" AComment
 "
-let g:acommentAutoIndent = 0
-let g:acommentStrictMode = 3
-func! g:ACommentSet()
-    let g:acomment = {}
-    let g:acomment["user"] = g:vimer
-    let g:acomment['cTop'] = [
-                \ [["          File:  ","Y"],[expand("%"),"N"]]
-                \,[["        Author:  ","Y"],[g:acomment["user"],"T"]]
-                \,[["      Modifier:  ","Y"],[g:acomment["user"],"SIGN"]]
-                \,[["      Modified:  ","Y"],[strftime("%Y-%m-%d"),"N"]]
-                \,[["   Description:  ","N"],["","Y"]]
-                \]
-endf
+let g:acomment_define = {'php': '//'}
 
 " Airline
 "
