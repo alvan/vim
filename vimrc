@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2016-04-15
+"      Modified:  2016-07-05
 "
 " --}}}
 "
@@ -11,14 +11,29 @@
 " Init
 " --------------------------------------------------------------------
 set nocompatible
-let g:user = 'Alvan'
 
+" --------------------------------------------------------------------
+" VARS
+" --------------------------------------------------------------------
 if has("unix")
     let $VIMDIR = $HOME."/.vim"
     let $VIMDOT = '.'
 else
     let $VIMDIR = $VIM."/vimfiles"
     let $VIMDOT = '_'
+en
+
+if !exists('g:vimer') || g:vimer == ''
+    let g:vimer = ''
+
+    if executable('git') > 0
+        let g:vimer = substitute(system('git config --get user.name'),
+                    \ '[\r\n]', '', 'g')
+    en
+
+    if g:vimer == ''
+        let g:vimer = $USER
+    en
 en
 
 " --------------------------------------------------------------------
@@ -212,7 +227,7 @@ let g:acommentAutoIndent = 0
 let g:acommentStrictMode = 3
 func! g:ACommentSet()
     let g:acomment = {}
-    let g:acomment["user"] = g:user
+    let g:acomment["user"] = g:vimer
     let g:acomment['cTop'] = [
                 \ [["          File:  ","Y"],[expand("%"),"N"]]
                 \,[["        Author:  ","Y"],[g:acomment["user"],"T"]]
@@ -251,9 +266,8 @@ let g:airline_symbols.space = "\ua0"
 
 let g:airline#extensions#whitespace#enabled = 0
 
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Closetag
 "
@@ -344,10 +358,11 @@ en
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = ['\~$', '\.pyc$', '\.DS_Store']
 let g:NERDTreeHijackNetrw = 0
+let g:NERDTreeCascadeOpenSingleChildDir = 0
 
 " Snippets
 "
-let g:snips_author = g:user
+let g:snips_author = g:vimer
 
 " Solarized
 "
