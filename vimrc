@@ -197,6 +197,7 @@ nmap <leader>ts :ts<CR>
 nmap <leader>ms :marks<CR>
 nmap <leader>m<space> :delm!<CR>
 
+nmap <leader>wf :NERDTreeFind<CR>
 nmap <leader>wh :NERDTreeToggle<CR>
 nmap <leader>wk :MBEToggle<CR>
 nmap <leader>wl :TagbarToggle<CR>
