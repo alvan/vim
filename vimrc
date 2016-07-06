@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2016-07-05
+"      Modified:  2016-07-06
 "
 " --}}}
 "
@@ -15,12 +15,12 @@ set nocompatible
 " --------------------------------------------------------------------
 " VARS
 " --------------------------------------------------------------------
-if has("unix")
-    let $VIMDIR = $HOME."/.vim"
-    let $VIMDOT = '.'
-else
-    let $VIMDIR = $VIM."/vimfiles"
-    let $VIMDOT = '_'
+if !exists('$VIMDIR')
+    let $VIMDIR = has('unix') ? $HOME . "/.vim" : $VIM . "/vimfiles"
+en
+
+if !exists('$VIMDOT')
+    let $VIMDOT = has('unix') ? '.' : '_'
 en
 
 " --------------------------------------------------------------------
