@@ -1,4 +1,4 @@
-" == "Acomment" == {{{
+" == "vim" == {{{
 "
 "          File:  vimrc
 "        Author:  Alvan
@@ -231,7 +231,7 @@ au BufReadPost quickfix nmap <buffer> <silent> o <CR>
 " Conf
 " --------------------------------------------------------------------
 
-" AComment
+" Acomment
 "
 let g:acomment_define = {'php': '// %s'}
 
