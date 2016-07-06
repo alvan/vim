@@ -23,28 +23,6 @@ else
     let $VIMDOT = '_'
 en
 
-if !exists('g:vimer') || g:vimer == ''
-    let g:vimer = ''
-
-    if executable('git') > 0
-        let g:vimer = substitute(system('git config --get user.name'),
-                    \ '[\r\n]', '', 'g')
-    en
-
-    if g:vimer == ''
-        let g:vimer = $USER
-    en
-en
-
-if !exists('g:email') || g:email == ''
-    let g:email = ''
-
-    if executable('git') > 0
-        let g:email = substitute(system('git config --get user.email')
-                    \, '[\r\n]', '', 'g')
-    en
-en
-
 " --------------------------------------------------------------------
 " Func
 " --------------------------------------------------------------------
@@ -357,11 +335,6 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = ['\~$', '\.pyc$', '\.DS_Store']
 let g:NERDTreeHijackNetrw = 0
 let g:NERDTreeCascadeOpenSingleChildDir = 0
-
-" Snippets
-"
-let g:snips_author = g:vimer
-let g:snips_author_email = g:email
 
 " Solarized
 "
