@@ -37,7 +37,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-airline/vim-airline'
