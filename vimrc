@@ -216,7 +216,6 @@ let g:acomment_define = {'php': '// %s'}
 " Airline
 "
 " let g:airline_theme = 
-let g:airline_powerline_fonts = 1
 let g:airline_mode_map = {
             \ '__' : '-',
             \ 'n'  : 'Nor',
@@ -248,7 +247,7 @@ let g:airline#extensions#whitespace#enabled = 0
 " Closetag
 "
 " let g:closetag_use_xhtml = 0
-let g:closetag_filenames = "*.xml,*.html,*.xhtml,*.phtml,*.shtml"
+let g:closetag_filenames = "*.jsx,*.xml,*.html,*.xhtml,*.phtml,*.shtml"
 
 " CtrlP
 "
