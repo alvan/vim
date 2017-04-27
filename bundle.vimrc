@@ -34,7 +34,6 @@ Plugin 'mattn/ctrlp-mark'
 Plugin 'mhinz/vim-startify'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
