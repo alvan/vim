@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2016-07-06
+"      Modified:  2017-06-18
 "
 " --}}}
 "
@@ -217,8 +217,8 @@ let g:acomment_define = {'php': '// %s'}
 "
 " let g:airline_theme = 
 let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'n'  : 'Nor',
+            \ '__' : '---',
+            \ 'n'  : '-N-',
             \ 'i'  : 'Ins',
             \ 'R'  : 'Rep',
             \ 'c'  : 'Cmd',
