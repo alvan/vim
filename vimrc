@@ -251,11 +251,12 @@ let g:closetag_filenames = "*.jsx,*.xml,*.html,*.xhtml,*.phtml,*.shtml"
 
 " CtrlP
 "
+" let g:ctrlp_regexp = 1
 " let g:ctrlp_lazy_update = 1
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_match_window = 'order:ttb,max:16'
+let g:ctrlp_match_window = 'order:ttb,max:16,results:30'
 let g:ctrlp_custom_ignore = {
             \ 'file': '\v\.(pkg|dmg|exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
             \ }
@@ -268,8 +269,11 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtSelectMove("j")':   ['<tab>', '<c-j>', '<down>'],
             \ 'PrtSelectMove("k")':   ['<s-tab>', '<c-k>', '<up>'],
             \ 'ToggleFocus()':        [''],
+            \ 'ToggleRegex()':        ['<c-r>'],
             \ 'PrtExpandDir()':       [''],
             \ }
+
+let g:ctrlp_reuse_window = 'startify'
 
 " Dicts
 "
@@ -349,7 +353,6 @@ let g:sparkupNextMapping = '<silent> <c-n>'
 "
 " let g:startify_disable_at_vimenter = 1
 let g:startify_custom_header = []
-let g:ctrlp_reuse_window = 'startify'
 let g:startify_change_to_dir = 1
 let g:startify_bookmarks = [ $VIMDIR . '/vimrc' ]
 let g:startify_session_dir = $HOME.'/'.$VIMDOT.'vim_startify_ses'
