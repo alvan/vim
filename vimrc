@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2017-06-18
+"      Modified:  2017-06-28
 "
 " --}}}
 "
