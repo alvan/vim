@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2017-06-28
+"      Modified:  2017-07-01
 "
 " --}}}
 "
@@ -244,6 +244,10 @@ let g:airline#extensions#whitespace#enabled = 0
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_nr_show = 1
 
+" Artisan
+"
+let g:artisan_user_modules = ['log', 'job', 'tag']
+
 " Closetag
 "
 " let g:closetag_use_xhtml = 0
@@ -303,18 +307,6 @@ let g:html_indent_inctags = "main"
 " PHP indent
 let g:PHP_vintage_case_default_indent = 1
 
-" Indexer
-"
-au BufRead,BufNewFile indexer.conf setfiletype indexer_files
-let g:indexer_indexerListFilename = $VIMDIR.'/indexer.conf'
-let g:indexer_tagsDirname = $HOME.'/'.$VIMDOT.'vim_indexer_tags'
-let g:indexer_changeCurDirIfVimprjFound = 0
-" let g:indexer_ctagsJustAppendTagsAtFileSave = 1
-" let g:indexer_debugLogLevel = 3
-let g:indexer_disableCtagsWarning = 1
-" let g:indexer_backgroundDisabled = 1
-
-
 " Javascript indent
 "
 let g:js_indent_log = 0
@@ -337,6 +329,7 @@ en
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = ['\~$', '\.pyc$', '\.DS_Store']
 let g:NERDTreeHijackNetrw = 0
+let g:NERDTreeCascadeSingleChildDir = 0
 let g:NERDTreeCascadeOpenSingleChildDir = 0
 
 " Solarized
