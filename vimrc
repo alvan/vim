@@ -70,6 +70,7 @@ func! AutoPairMap(...)
         en
     endfor
 endf
+call AutoPairMap(1)
 
 " --------------------------------------------------------------------
 " Mode
@@ -180,10 +181,16 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 " Keys
 " --------------------------------------------------------------------
 nmap <leader>ts :ts<CR>
-
 nmap <leader>ms :marks<CR>
 nmap <leader>m<space> :delm!<CR>
 
+nmap <Tab> :bn!<CR>
+nmap <S-Tab> :bp!<CR>
+
+nmap <C-w>. :MBEbf<CR>
+nmap <C-w>, :MBEbb<CR>
+
+nmap <leader>ww :ToggleBufExplorer<CR>
 nmap <leader>wf :NERDTreeFind<CR>
 nmap <leader>wh :NERDTreeToggle<CR>
 nmap <leader>wk :MBEToggle<CR>
@@ -192,9 +199,6 @@ nmap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
 vmap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-
-nmap <leader>ai :call AutoPairMap()<CR>
-call AutoPairMap(1)
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
@@ -229,20 +233,30 @@ let g:airline_mode_map = {
             \ 'S'  : 'S⋅L',
             \ '' : 'S⋅B',
             \ }
-let g:airline_symbols = {}
+
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+en
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
-let g:airline_symbols.space = "\ua0"
 
-let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#enabled = 1
 
 " let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffers_label = 'Bufs'
 " let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#show_close_button = 1
+
+
+" BufExplorer
+"
+
 
 " Indexer
 "
@@ -307,12 +321,7 @@ let g:vim_markdown_folding_disabled = 1
 
 " MiniBufExpl
 "
-" let g:loaded_minibufexplorer = 1
 let g:miniBufExplDebugLevel = 0
-if !exists('g:loaded_minibufexplorer')
-    nmap <C-w>. :MBEbf<CR>
-    nmap <C-w>, :MBEbb<CR>
-en
 
 " NERDTree
 "
