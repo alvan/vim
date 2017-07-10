@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2017-07-01
+"      Modified:  2017-07-10
 "
 " --}}}
 "
@@ -19,9 +19,19 @@ if !exists('$VIMDIR')
     let $VIMDIR = has('unix') ? $HOME . "/.vim" : $VIM . "/vimfiles"
 en
 
+if !exists('$VIMLOC')
+    let $VIMLOC = $VIMDIR . '/local'
+    if exists('$USER') && isdirectory($VIMLOC . '/' . $USER)
+        let $VIMLOC = $VIMLOC . '/' . $USER
+    en
+en
+
 if !exists('$VIMDOT')
     let $VIMDOT = has('unix') ? '.' : '_'
 en
+
+" --------------------------------------------------------------------
+source $VIMLOC/before.vimrc
 
 " --------------------------------------------------------------------
 " Func
@@ -203,7 +213,7 @@ vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 if has("unix")
-    command! W w !sudo tee % > /dev/null
+    com! W w !sudo tee % > /dev/null
 en
 
 " press o to open file in quickfix window
@@ -396,6 +406,9 @@ let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_fmt_command = "goimports"
 
 " --------------------------------------------------------------------
+source $VIMLOC/behind.vimrc
+
+" --------------------------------------------------------------------
 " Rtps
 " --------------------------------------------------------------------
 
@@ -405,10 +418,14 @@ set rtp+=$VIMDIR/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 source $VIMDIR/bundle.vimrc
+source $VIMLOC/bundle.vimrc
 call vundle#end()
 
 filetype plugin indent on    " required
 
 syntax on
+
 " --------------------------------------------------------------------
+source $VIMLOC/finish.vimrc
+
 " End of file : vimrc
