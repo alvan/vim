@@ -33,6 +33,11 @@ func! GotoExitPos()
 endf
 au BufReadPost * call GotoExitPos()
 
+func! ExecUserLcd()
+    silent! lcd %:p:h
+endf
+au BufEnter * call ExecUserLcd()
+
 func! QuitIfNoWin()
     let n = winnr('$')
     while n >= 0
@@ -99,7 +104,6 @@ set guioptions+=m
 set guitablabel=[%N]\ %t\ %M
 
 set bsdir=buffer
-set autochdir
 
 set history=100
 set hid
