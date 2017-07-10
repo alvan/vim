@@ -31,6 +31,7 @@ func! GotoExitPos()
         exe "normal! g`\""
     en
 endf
+au BufReadPost * call GotoExitPos()
 
 func! QuitIfNoWin()
     let n = winnr('$')
@@ -46,12 +47,13 @@ func! QuitIfNoWin()
         let n -= 1
     endw
 
-    if tabpagenr("$") == 1
+    if tabpagenr('$') == 1
         exe 'qa'
     else
         exe 'tabclose'
     en
 endf
+au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 
 func! AutoPairMap(...)
     let map = {
@@ -173,10 +175,6 @@ set complete-=k complete+=k
 
 set tags+=tags;
 
-au BufReadPost * call GotoExitPos()
-
-au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
-
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
@@ -184,18 +182,16 @@ nmap <leader>ts :ts<CR>
 nmap <leader>ms :marks<CR>
 nmap <leader>m<space> :delm!<CR>
 
-nmap <Tab> :bn!<CR>
-nmap <S-Tab> :bp!<CR>
-
-nmap <C-w>. :MBEbf<CR>
-nmap <C-w>, :MBEbb<CR>
+nmap <tab> :bn<CR>
+nmap <s-tab> :bp<CR>
+nmap <expr> <leader>q len(getbufinfo({'buflisted':1})) > 1 ? ':bp<cr>:bd #<cr>' : ':bd<cr>'
 
 nmap <leader>ww :ToggleBufExplorer<CR>
 nmap <leader>wf :NERDTreeFind<CR>
 nmap <leader>wh :NERDTreeToggle<CR>
 nmap <leader>wk :MBEToggle<CR>
 nmap <leader>wl :TagbarToggle<CR>
-nmap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
+nmap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>:MBEToggle<CR>
 
 vmap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
@@ -219,7 +215,6 @@ let g:acomment_define = {'php': '// %s'}
 
 " Airline
 "
-" let g:airline_theme = 
 let g:airline_mode_map = {
             \ '__' : '---',
             \ 'n'  : '-N-',
@@ -245,8 +240,6 @@ en
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
-
-let g:airline#extensions#whitespace#enabled = 1
 
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffers_label = 'Bufs'
