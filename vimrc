@@ -198,7 +198,6 @@ nmap <leader>m<space> :delm!<CR>
 
 nmap <tab> :bn<CR>
 nmap <s-tab> :bp<CR>
-nmap <expr> <leader>q len(getbufinfo({'buflisted':1})) > 1 ? ':bp<cr>:bd #<cr>' : ':bd<cr>'
 
 nmap <leader>ww :ToggleBufExplorer<CR>
 nmap <leader>wf :NERDTreeFind<CR>
