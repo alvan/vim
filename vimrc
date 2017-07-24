@@ -192,10 +192,6 @@ set tags+=tags;
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
-nmap <leader>ts :ts<CR>
-nmap <leader>ms :marks<CR>
-nmap <leader>m<space> :delm!<CR>
-
 nmap <tab> :bn<CR>
 nmap <s-tab> :bp<CR>
 
