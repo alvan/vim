@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2017-07-10
+"      Modified:  2017-07-25
 "
 " --}}}
 "
@@ -182,8 +182,9 @@ set tags+=tags;
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
-nmap <tab> :bn<CR>
-nmap <s-tab> :bp<CR>
+
+nmap <expr> <tab> (&modifiable ? ':bn<CR>' : '<tab>')
+nmap <expr> <s-tab> (&modifiable ? ':bp<CR>' : '<s-tab>')
 
 nmap <leader>ww :ToggleBufExplorer<CR>
 nmap <leader>wf :NERDTreeFind<CR>
