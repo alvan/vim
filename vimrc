@@ -183,18 +183,18 @@ set tags+=tags;
 " Keys
 " --------------------------------------------------------------------
 
-nmap <expr> <tab> (&modifiable ? ':bn<CR>' : '<tab>')
-nmap <expr> <s-tab> (&modifiable ? ':bp<CR>' : '<s-tab>')
+nn <expr> <tab> (&modifiable ? ':bn<CR>' : '<tab>')
+nn <expr> <s-tab> (&modifiable ? ':bp<CR>' : '<s-tab>')
 
-nmap <leader>ww :ToggleBufExplorer<CR>
-nmap <leader>wf :NERDTreeFind<CR>
-nmap <leader>wh :NERDTreeToggle<CR>
-nmap <leader>wk :MBEToggle<CR>
-nmap <leader>wl :TagbarToggle<CR>
-nmap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>:MBEToggle<CR>
+nn <leader>ww :ToggleBufExplorer<CR>
+nn <leader>wf :NERDTreeFind<CR>
+nn <leader>wh :NERDTreeToggle<CR>
+nn <leader>wk :MBEToggle<CR>
+nn <leader>wl :TagbarToggle<CR>
+nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>:MBEToggle<CR>
 
-vmap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vn <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vn <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
