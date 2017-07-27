@@ -194,7 +194,6 @@ nmap <leader>wl :TagbarToggle<CR>
 nmap <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>:MBEToggle<CR>
 
 vmap <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-vmap <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
