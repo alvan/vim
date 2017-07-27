@@ -301,6 +301,13 @@ let g:DrChipTopLvlMenu = "Tools."
 
 " Grep
 "
+" The serach term is quoted by single quote,
+" so if we need to search single quote, we should close the single quote first,
+" and then use double quote to wrap the search term.
+" ex:
+" 'key' => '"'key'"'
+"
+"
 " let g:Grep_Default_Options = '-I'
 let g:Grep_Skip_Dirs = '.git RCS CVS SCCS'
 let g:Grep_Skip_Files = '*~ *,v s.* *.pyc *.swp'
