@@ -271,7 +271,6 @@ let g:ctrlp_match_window = 'order:ttb,max:16,results:30'
 let g:ctrlp_custom_ignore = {
             \ 'file': '\v\.(pkg|dmg|exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
             \ }
-let g:ctrlp_map = '?'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_extensions = ['quickfix', 'mark', 'tag', 'mixed', 'modified']
 let g:ctrlp_root_markers = ['root.dir', '.root.dir', '.git', '.hg']
