@@ -214,18 +214,19 @@ let g:acomment_define = {'php': '// %s'}
 
 " Airline
 "
+let g:airline_skip_empty_sections = 1
 let g:airline_mode_map = {
-            \ '__' : '---',
+            \ '__' : ' - ',
             \ 'n'  : '-N-',
             \ 'i'  : 'Ins',
             \ 'R'  : 'Rep',
             \ 'c'  : 'Cmd',
             \ 'v'  : 'Vis',
-            \ 'V'  : 'V⋅L',
-            \ '' : 'V⋅B',
+            \ 'V'  : 'V-L',
+            \ '' : 'V-B',
             \ 's'  : 'Sel',
-            \ 'S'  : 'S⋅L',
-            \ '' : 'S⋅B',
+            \ 'S'  : 'S-L',
+            \ '' : 'S-B',
             \ }
 
 let g:airline_left_sep = '⮀'
