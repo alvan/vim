@@ -246,7 +246,6 @@ let g:airline#extensions#tabline#tabs_label = 'Tabs'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#show_close_button = 1
 
-
 " BufExplorer
 "
 
