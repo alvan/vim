@@ -189,9 +189,8 @@ nn <expr> <s-tab> (&modifiable ? ':bp<CR>' : '<s-tab>')
 nn <leader>ww :ToggleBufExplorer<CR>
 nn <leader>wf :NERDTreeFind<CR>
 nn <leader>wh :NERDTreeToggle<CR>
-nn <leader>wk :MBEToggle<CR>
 nn <leader>wl :TagbarToggle<CR>
-nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>:MBEToggle<CR>
+nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
 vn <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vn <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
@@ -241,10 +240,11 @@ let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#buffers_label = 'Bufs'
-" let g:airline#extensions#tabline#buffer_nr_show = 1
-" let g:airline#extensions#tabline#show_close_button = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffers_label = 'Bufs'
+let g:airline#extensions#tabline#tabs_label = 'Tabs'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#show_close_button = 1
 
 
 " BufExplorer
