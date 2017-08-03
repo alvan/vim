@@ -255,7 +255,7 @@ let g:airline_symbols.linenr = '⭡'
 " BufExplorer
 "
 let g:bufExplorerShowTabBuffer = 1
-
+let g:bufExplorerDisableDefaultKeyMapping = 1
 
 " Indexer
 "
