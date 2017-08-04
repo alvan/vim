@@ -187,6 +187,7 @@ nn <leader>ww :ToggleBufExplorer<CR>
 nn <leader>wf :NERDTreeFind<CR>
 nn <leader>wh :NERDTreeToggle<CR>
 nn <leader>wl :TagbarToggle<CR>
+nn <leader>wk :MBEToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
 vn <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
@@ -264,8 +265,7 @@ let g:indexer_root_setting = '_indexer.json'
 
 " Closetag
 "
-" let g:closetag_use_xhtml = 0
-let g:closetag_filenames = "*.jsx,*.xml,*.html,*.xhtml,*.phtml,*.shtml"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx"
 
 " CtrlP
 "
