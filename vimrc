@@ -182,6 +182,7 @@ set tags+=tags;
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
+nn <leader>b  :buffers<CR>:buffer<space>
 
 nn <leader>ww :ToggleBufExplorer<CR>
 nn <leader>wf :NERDTreeFind<CR>
