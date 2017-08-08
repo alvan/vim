@@ -240,17 +240,16 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
 let g:airline#extensions#tagbar#enabled = 0
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = g:airline_left_sep
-let g:airline#extensions#tabline#left_alt_sep = g:airline_left_alt_sep
-let g:airline#extensions#tabline#right_sep = g:airline_right_sep
-let g:airline#extensions#tabline#right_alt_sep = g:airline_right_alt_sep
-let g:airline#extensions#tabline#buffers_label = 'Bufs'
-let g:airline#extensions#tabline#tabs_label = 'Tabs'
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#fnamemod = ':p:t'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#enabled = 0
+" let g:airline#extensions#tabline#left_sep = g:airline_left_sep
+" let g:airline#extensions#tabline#left_alt_sep = g:airline_left_alt_sep
+" let g:airline#extensions#tabline#right_sep = g:airline_right_sep
+" let g:airline#extensions#tabline#right_alt_sep = g:airline_right_alt_sep
+" let g:airline#extensions#tabline#buffers_label = 'Bufs'
+" let g:airline#extensions#tabline#tabs_label = 'Tabs'
+" let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#fnamemod = ':p:t'
+" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " BufExplorer
 "
