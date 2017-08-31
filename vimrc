@@ -276,7 +276,7 @@ let g:ctrlp_custom_ignore = {
 if executable('git')
     let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard' .
                 \ (exists('g:ctrlp_custom_ignore') && has_key(g:ctrlp_custom_ignore, 'file')
-                \ ? ' | grep -v "'. g:ctrlp_custom_ignore['file'] .'"'
+                \ ? ' | grep -v '. shellescape(g:ctrlp_custom_ignore['file'])
                 \ : '' )
                 \ ]
 en
