@@ -266,15 +266,21 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx"
 
 " CtrlP
 "
-" let g:ctrlp_regexp = 1
-" let g:ctrlp_lazy_update = 1
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_use_caching = 0
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window = 'order:ttb,max:16,results:30'
 let g:ctrlp_custom_ignore = {
-            \ 'file': '\v\.(pkg|dmg|exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
+            \ 'file': '\.\(pkg\|dmg\|exe\|so\|dll\|pyc\|pdf\|jpg\|jpeg\|png\|gif\|bmp\|gz\|zip\|rar\)$',
             \ }
+
+if executable('git')
+    let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard' .
+                \ (exists('g:ctrlp_custom_ignore') && has_key(g:ctrlp_custom_ignore, 'file')
+                \ ? ' | grep -v "'. g:ctrlp_custom_ignore['file'] .'"'
+                \ : '' )
+                \ ]
+en
+
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_extensions = ['quickfix', 'mark', 'tag', 'mixed', 'modified']
 let g:ctrlp_root_markers = ['root.dir', '.root.dir', '.git', '.hg']
