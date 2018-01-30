@@ -188,9 +188,6 @@ nn <leader>wh :NERDTreeToggle<CR>
 nn <leader>wl :TagbarToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
-vn <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-vn <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 if has("unix")
