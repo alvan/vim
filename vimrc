@@ -336,11 +336,6 @@ let g:NERDTreeCascadeOpenSingleChildDir = 0
 let g:solarized_menu = 0
 let g:solarized_termtrans = 1
 
-" Sparkup
-"
-let g:sparkupExecuteMapping = "<silent> <c-e>"
-let g:sparkupNextMapping = '<silent> <c-n>'
-
 " Startify
 "
 " let g:startify_disable_at_vimenter = 1
