@@ -188,6 +188,8 @@ nn <leader>wh :NERDTreeToggle<CR>
 nn <leader>wl :TagbarToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
+nn <leader>sf :Rgrep<CR>
+
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 if has("unix")
