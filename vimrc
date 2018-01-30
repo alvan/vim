@@ -190,8 +190,8 @@ nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
 nn <leader>sf :Rgrep<CR>
 
-xn < <gv
-xn > >gv
+" xn < <gv
+" xn > >gv
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
