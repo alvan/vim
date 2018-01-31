@@ -251,8 +251,8 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#buffer_nr_format = ' %s: '
 let g:airline#extensions#tabline#buffer_nr_show = 1
 if g:airline#extensions#tabline#enabled
-    nmap <C-h> <Plug>AirlineSelectPrevTab
-    nmap <C-l> <Plug>AirlineSelectNextTab
+    nm <TAB> <Plug>AirlineSelectNextTab
+    nm <S-TAB> <Plug>AirlineSelectPrevTab
 en
 
 " BufExplorer
