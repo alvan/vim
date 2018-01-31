@@ -200,7 +200,7 @@ if has("unix")
 en
 
 " press o to open file in quickfix window
-au BufReadPost quickfix nmap <buffer> <silent> o <CR>
+au BufReadPost quickfix nn <buffer> <silent> o <CR>
 
 " --------------------------------------------------------------------
 " Conf
@@ -232,15 +232,14 @@ let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
 let g:airline_right_alt_sep = '⮃'
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-en
+let g:airline_symbols = {}
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
 let g:airline#extensions#tagbar#enabled = 0
-let g:airline#extensions#tabline#enabled = 0
+
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = g:airline_left_sep
 let g:airline#extensions#tabline#left_alt_sep = g:airline_left_alt_sep
 let g:airline#extensions#tabline#right_sep = g:airline_right_sep
@@ -249,7 +248,12 @@ let g:airline#extensions#tabline#buffers_label = 'Bufs'
 let g:airline#extensions#tabline#tabs_label = 'Tabs'
 let g:airline#extensions#tabline#fnamemod = ':p:t'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#buffer_nr_format = ' %s: '
 let g:airline#extensions#tabline#buffer_nr_show = 1
+if g:airline#extensions#tabline#enabled
+    nmap <C-h> <Plug>AirlineSelectPrevTab
+    nmap <C-l> <Plug>AirlineSelectNextTab
+en
 
 " BufExplorer
 "
