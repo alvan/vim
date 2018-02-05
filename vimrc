@@ -117,12 +117,10 @@ set formatoptions+=mM
 set backspace=indent,eol,start
 
 set ph=15
-" set cot=menuone,preview
 set cot=menuone
 set complete-=k complete+=k
 
 set tags+=tags;
-
 
 func! GotoExitPos()
     if line("'\"") > 1 && line("'\"") <= line("$")
@@ -182,6 +180,9 @@ call AutoPairMap(1)
 if has("unix")
     com! W w !sudo tee % > /dev/null
 en
+
+" press o to open file in quickfix window
+au BufReadPost quickfix nn <buffer> <silent> o <CR>
 
 " --------------------------------------------------------------------
 " Conf
@@ -391,9 +392,6 @@ if exists('g:airline#extensions#tabline#enabled')
     nm <TAB> <Plug>AirlineSelectNextTab
     nm <S-TAB> <Plug>AirlineSelectPrevTab
 en
-
-" press o to open file in quickfix window
-au BufReadPost quickfix nn <buffer> <silent> o <CR>
 
 " --------------------------------------------------------------------
 " Rtps
