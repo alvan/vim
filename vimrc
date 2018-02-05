@@ -24,62 +24,6 @@ if !exists('$VIMDOT')
 en
 
 " --------------------------------------------------------------------
-" Func
-" --------------------------------------------------------------------
-func! GotoExitPos()
-    if line("'\"") > 1 && line("'\"") <= line("$")
-        exe "normal! g`\""
-    en
-endf
-au BufReadPost * call GotoExitPos()
-
-func! ExecUserLcd()
-    silent! lcd %:p:h
-endf
-au BufEnter * call ExecUserLcd()
-
-func! QuitIfNoWin()
-    let n = winnr('$')
-    while n >= 0
-        let t = getwinvar(n, '&filetype')
-        if t != "nerdtree"
-                    \ && t != "minibufexpl"
-                    \ && t != "tagbar"
-                    \ && t != "qf"
-            return
-        en
-
-        let n -= 1
-    endw
-
-    if tabpagenr('$') == 1
-        exe 'qa'
-    else
-        exe 'tabclose'
-    en
-endf
-au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
-
-func! AutoPairMap(...)
-    let map = {
-                \'"': '""<left>',
-                \"'": "''<left>",
-                \'`': '``<left>',
-                \'(': '()<left>',
-                \'[': '[]<left>',
-                \'{<CR>': '{}<ESC>i<CR><ESC>O'
-                \}
-    for key in keys(map)
-        if (a:0 > 0 && a:1 == 1) || mapcheck(key, 'i') == ""
-            exe "inoremap " . key . " " . map[key]
-        else
-            exe "iunmap " . key
-        en
-    endfor
-endf
-call AutoPairMap(1)
-
-" --------------------------------------------------------------------
 " Mode
 " --------------------------------------------------------------------
 if has('mouse')
@@ -179,28 +123,65 @@ set complete-=k complete+=k
 
 set tags+=tags;
 
-" --------------------------------------------------------------------
-" Keys
-" --------------------------------------------------------------------
-nn <leader>ww :ToggleBufExplorer<CR>
-nn <leader>wf :NERDTreeFind<CR>
-nn <leader>wh :NERDTreeToggle<CR>
-nn <leader>wl :TagbarToggle<CR>
-nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
-nn <leader>sf :Rgrep<CR>
+func! GotoExitPos()
+    if line("'\"") > 1 && line("'\"") <= line("$")
+        exe "normal! g`\""
+    en
+endf
+au BufReadPost * call GotoExitPos()
 
-" xn < <gv
-" xn > >gv
+func! ExecUserLcd()
+    silent! lcd %:p:h
+endf
+au BufEnter * call ExecUserLcd()
+
+func! QuitIfNoWin()
+    let n = winnr('$')
+    while n >= 0
+        let t = getwinvar(n, '&filetype')
+        if t != "nerdtree"
+                    \ && t != "minibufexpl"
+                    \ && t != "tagbar"
+                    \ && t != "qf"
+            return
+        en
+
+        let n -= 1
+    endw
+
+    if tabpagenr('$') == 1
+        exe 'qa'
+    else
+        exe 'tabclose'
+    en
+endf
+au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
+
+func! AutoPairMap(...)
+    let map = {
+                \'"': '""<left>',
+                \"'": "''<left>",
+                \'`': '``<left>',
+                \'(': '()<left>',
+                \'[': '[]<left>',
+                \'{<CR>': '{}<ESC>i<CR><ESC>O'
+                \}
+    for key in keys(map)
+        if (a:0 > 0 && a:1 == 1) || mapcheck(key, 'i') == ""
+            exe "inoremap " . key . " " . map[key]
+        else
+            exe "iunmap " . key
+        en
+    endfor
+endf
+call AutoPairMap(1)
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 if has("unix")
     com! W w !sudo tee % > /dev/null
 en
-
-" press o to open file in quickfix window
-au BufReadPost quickfix nn <buffer> <silent> o <CR>
 
 " --------------------------------------------------------------------
 " Conf
@@ -250,10 +231,6 @@ let g:airline#extensions#tabline#fnamemod = ':p:t'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#buffer_nr_format = ' %s: '
 let g:airline#extensions#tabline#buffer_nr_show = 1
-if g:airline#extensions#tabline#enabled
-    nm <TAB> <Plug>AirlineSelectNextTab
-    nm <S-TAB> <Plug>AirlineSelectPrevTab
-en
 
 " BufExplorer
 "
@@ -357,7 +334,6 @@ au User Startified nmap <buffer> o <plug>(startify-open-buffers)
 
 " Supertab
 "
-" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Syntastic
@@ -383,8 +359,6 @@ let g:tagbar_map_togglefold = 'za'
 "
 let g:UltiSnipsSnippetDirectories = ["snips", "UltiSnips"]
 let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Vdebug
 "
@@ -394,12 +368,32 @@ en
 " let g:vdebug_options['server'] = '192.168.56.1'
 let g:vdebug_options['server'] = ''
 let g:vdebug_options['port'] = 9001
-let g:vdebug_options['path_maps'] = {'/data/':$HOME.'/', '/media/sf_':$HOME.'/', '/media/psf/Home/':$HOME.'/'}
+let g:vdebug_options['path_maps'] = {'/data/':$HOME.'/', '/media/sf_':$HOME.'/'}
 
 " Vim-Go
 "
 let g:go_bin_path = expand("$GOPATH/bin/")
 let g:go_fmt_command = "goimports"
+
+" --------------------------------------------------------------------
+" Keys
+" --------------------------------------------------------------------
+nn <leader>ww :ToggleBufExplorer<CR>
+nn <leader>wf :NERDTreeFind<CR>
+nn <leader>wh :NERDTreeToggle<CR>
+nn <leader>wl :TagbarToggle<CR>
+nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
+
+nn <leader>sf :Rgrep<CR>
+
+if exists('g:airline#extensions#tabline#enabled')
+            \ && g:airline#extensions#tabline#enabled
+    nm <TAB> <Plug>AirlineSelectNextTab
+    nm <S-TAB> <Plug>AirlineSelectPrevTab
+en
+
+" press o to open file in quickfix window
+au BufReadPost quickfix nn <buffer> <silent> o <CR>
 
 " --------------------------------------------------------------------
 " Rtps
