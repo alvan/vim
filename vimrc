@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2017-07-31
+"      Modified:  2018-02-05
 "
 " --}}}
 "
@@ -257,6 +257,8 @@ en
 
 " BufExplorer
 "
+let g:bufExplorerSortBy = 'number'
+let g:bufExplorerShowNoName = 1
 let g:bufExplorerShowTabBuffer = 1
 let g:bufExplorerDisableDefaultKeyMapping = 1
 
