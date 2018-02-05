@@ -316,8 +316,7 @@ let g:DrChipTopLvlMenu = "Tools."
 " 'key' => '"'key'"'
 "
 "
-" let g:Grep_Default_Options = '-I'
-let g:Grep_Use_Async = 0
+let g:Grep_Run_Async = 0
 let g:Grep_Skip_Dirs = '.git RCS CVS SCCS'
 let g:Grep_Skip_Files = '*~ *,v s.* *.pyc *.swp *.jpg *.png'
 
