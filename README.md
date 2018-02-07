@@ -1,7 +1,7 @@
-~Vim
-====
+~.vim
+=====
 
-Alvan's vim configurations.
+Vim configurations.
 
 Screenshots
 -----------
