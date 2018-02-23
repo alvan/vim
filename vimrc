@@ -3,7 +3,7 @@
 "          File:  vimrc
 "        Author:  Alvan
 "      Modifier:  Alvan
-"      Modified:  2018-02-05
+"      Modified:  2018-02-23
 "
 " --}}}
 "
@@ -379,6 +379,9 @@ let g:go_fmt_command = "goimports"
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
+vn <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vn <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+
 nn <leader>ww :ToggleBufExplorer<CR>
 nn <leader>wf :NERDTreeFind<CR>
 nn <leader>wh :NERDTreeToggle<CR>
