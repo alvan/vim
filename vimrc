@@ -272,6 +272,11 @@ let g:ctrlp_prompt_mappings = {
 
 let g:ctrlp_reuse_window = 'startify'
 
+" CtrlSF
+"
+let g:ctrlsf_absolute_file_path = 1
+let g:ctrlsf_default_root = 'project'
+
 " Dicts
 "
 let g:dict_spec = {
@@ -388,7 +393,8 @@ nn <leader>wh :NERDTreeToggle<CR>
 nn <leader>wl :TagbarToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
-nn <leader>sf :Rgrep<CR>
+nn <leader>ff :Rgrep<CR>
+nn <leader>sf :CtrlSF <C-R>=expand('<cword>') . ' ' . getcwd()<CR>
 
 if exists('g:airline#extensions#tabline#enabled')
             \ && g:airline#extensions#tabline#enabled
