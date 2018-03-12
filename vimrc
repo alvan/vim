@@ -394,7 +394,9 @@ nn <leader>wl :TagbarToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
 nn <leader>ff :Rgrep<CR>
-nn <leader>sf :CtrlSF <C-R>="'" . expand('<cword>') . "' " . getcwd()<CR>
+nn <leader>sf :CtrlSF <C-R>="-G .*"
+            \ . " -L '" . expand('<cword>') . "'"
+            \ . " " . getcwd()<CR>
 
 if exists('g:airline#extensions#tabline#enabled')
             \ && g:airline#extensions#tabline#enabled
