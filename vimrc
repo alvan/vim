@@ -250,13 +250,16 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx"
 
 " CtrlP
 "
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window = 'order:ttb,max:16,results:30'
 let g:ctrlp_custom_ignore = {
             \ 'file': '\.\(pkg\|dmg\|exe\|so\|dll\|pyc\|pdf\|jpg\|jpeg\|png\|gif\|bmp\|gz\|zip\|rar\)$',
             \ }
+if exists('g:ctrlp_clear_cache_on_exit') && g:ctrlp_clear_cache_on_exit
+    au VimLeave * CtrlPClearAllCaches
+en
 
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_extensions = ['quickfix', 'mark', 'tag', 'mixed', 'modified']
