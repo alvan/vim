@@ -366,8 +366,11 @@ let g:tagbar_map_togglefold = 'za'
 
 " UltiSnips
 "
-let g:UltiSnipsSnippetDirectories = ["snips", "UltiSnips"]
+if has('python')
+    let g:UltiSnipsUsePythonVersion = 2
+en
 let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsSnippetDirectories = ["snips", "UltiSnips"]
 
 " Vdebug
 "
