@@ -278,11 +278,6 @@ if executable('ag')
     let g:ctrlp_use_caching = 0
 en
 
-" CtrlSF
-"
-let g:ctrlsf_absolute_file_path = 1
-let g:ctrlsf_default_root = 'project'
-
 " Dicts
 "
 let g:dict_spec = {
@@ -403,9 +398,6 @@ nn <leader>wl :TagbarToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
 nn <leader>ff :Rgrep<CR>
-nn <leader>sf :CtrlSF <C-R>="-G .*"
-            \ . " -L '" . expand('<cword>') . "'"
-            \ . " " . getcwd()<CR>
 
 if exists('g:airline#extensions#tabline#enabled')
             \ && g:airline#extensions#tabline#enabled
