@@ -237,7 +237,7 @@ let g:indexer_root_setting = '_indexer.json'
 
 " Closetag
 "
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx,*.vue"
 
 " CtrlP
 "
