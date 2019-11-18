@@ -111,6 +111,7 @@ set ph=15
 set cot=menuone
 set complete-=k complete+=k
 
+set notagbsearch
 set tags+=tags;
 
 func! GotoExitPos()
