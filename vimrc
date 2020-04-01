@@ -249,7 +249,8 @@ let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window = 'order:ttb,max:16,results:30'
 let g:ctrlp_custom_ignore = {
-            \ 'file': '\.\(pkg\|dmg\|exe\|so\|dll\|pyc\|pdf\|jpg\|jpeg\|png\|gif\|bmp\|gz\|zip\|rar\)$',
+            \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
+            \ 'file': '\v\.(swp|pkg|dmg|exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
             \ }
 if exists('g:ctrlp_clear_cache_on_exit') && g:ctrlp_clear_cache_on_exit
     au VimLeave * CtrlPClearAllCaches
@@ -268,18 +269,9 @@ let g:ctrlp_prompt_mappings = {
             \ }
 
 let g:ctrlp_reuse_window = 'startify'
-
-" The Silver Searcher
-if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
-
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
-en
+" if has('unix')
+    " let g:ctrlp_user_command = 'git ls-files -co --exclude-standard $(git rev-parse --show-toplevel 2> /dev/null) 2> /dev/null || find %s -type f'
+" en
 
 " Dicts
 "
