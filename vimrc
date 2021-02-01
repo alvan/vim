@@ -181,9 +181,9 @@ au BufReadPost quickfix nn <buffer> <silent> o <CR>
 " Conf
 " --------------------------------------------------------------------
 
-" Acomment
+" Comment
 "
-let g:acomment_define = {'php': '// %s'}
+let g:comment_format = {'php': '// %s'}
 
 " Airline
 "
