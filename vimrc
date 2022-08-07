@@ -115,12 +115,13 @@ set complete-=k complete+=k
 set notagbsearch
 set tags+=tags;
 
+" :h last-position-jump
 func! GotoExitPos()
-    if line("'\"") > 1 && line("'\"") <= line("$")
-        exe "normal! g`\""
+    if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+        exe 'normal! g`"'
     en
 endf
-au BufReadPost * call GotoExitPos()
+au BufWinEnter * call GotoExitPos()
 
 func! ExecUserLcd()
     silent! lcd %:p:h
