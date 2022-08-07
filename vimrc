@@ -359,6 +359,7 @@ let g:tagbar_autoclose = 0
 let g:tagbar_iconchars = ['+', '-']
 let g:tagbar_map_jump = ['<CR>', 'o']
 let g:tagbar_map_togglefold = 'za'
+let g:tagbar_autoclose_netrw = 0
 
 " UltiSnips
 "
