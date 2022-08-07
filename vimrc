@@ -117,7 +117,9 @@ set tags+=tags;
 
 " :h last-position-jump
 func! GotoExitPos()
-    if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    if line("'\"") > 1 && line("'\"") <= line("$")
+                \ && &ft !~# '\(commit\|rebase\|svn\)'
+                \ && &bt !~# '^\(quickfix\|terminal\|nofile\|help|prompt|popup\)$'
         exe 'normal! g`"'
     en
 endf
@@ -393,7 +395,6 @@ nn <leader>wf :NERDTreeFind<CR>
 nn <leader>wh :NERDTreeToggle<CR>
 nn <leader>wl :TagbarToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
-
 
 if exists('g:airline#extensions#tabline#enabled')
             \ && g:airline#extensions#tabline#enabled
