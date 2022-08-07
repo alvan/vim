@@ -385,6 +385,7 @@ let g:go_fmt_command = "goimports"
 " --------------------------------------------------------------------
 vn <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vn <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+nn <silent> ; :Rgrep<CR>
 
 nn <leader>ww :ToggleBufExplorer<CR>
 nn <leader>wf :NERDTreeFind<CR>
@@ -392,7 +393,6 @@ nn <leader>wh :NERDTreeToggle<CR>
 nn <leader>wl :TagbarToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
-nn <leader>ff :Rgrep<CR>
 
 if exists('g:airline#extensions#tabline#enabled')
             \ && g:airline#extensions#tabline#enabled
