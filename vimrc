@@ -152,34 +152,6 @@ func! QuitIfNoWin()
 endf
 au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 
-func! AutoPairMap(...)
-    let map = {
-                \'"': '""<left>',
-                \"'": "''<left>",
-                \'`': '``<left>',
-                \'(': '()<left>',
-                \'[': '[]<left>',
-                \'{<CR>': '{}<ESC>i<CR><ESC>O'
-                \}
-    for key in keys(map)
-        if (a:0 > 0 && a:1 == 1) || mapcheck(key, 'i') == ""
-            exe "inoremap " . key . " " . map[key]
-        else
-            exe "iunmap " . key
-        en
-    endfor
-endf
-call AutoPairMap(1)
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-if has("unix")
-    com! W w !sudo tee % > /dev/null
-en
-
-" press o to open file in quickfix window
-au BufReadPost quickfix nn <buffer> <silent> o <CR>
-
 " --------------------------------------------------------------------
 " Conf
 " --------------------------------------------------------------------
@@ -239,7 +211,7 @@ let g:bufExplorerDisableDefaultKeyMapping = 1
 
 " Indexer
 "
-let g:indexer_root_setting = '_indexer.json'
+let g:indexer_root_setting = 'vim_indexer.json'
 
 " Closetag
 "
@@ -253,7 +225,7 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window = 'order:ttb,max:16,results:30'
 let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
-            \ 'file': '\v\.(swp|pkg|dmg|exe|so|dll|pyc|pdf|jpg|jpeg|png|gif|bmp|gz|zip|rar)$',
+            \ 'file': '\v\.(swp|pkg|dmg|exe|so|dll|pyc|doc|docx|pdf|jpg|jpeg|png|gif|bmp|tar|gz|zip|rar)$',
             \ }
 if exists('g:ctrlp_clear_cache_on_exit') && g:ctrlp_clear_cache_on_exit
     au VimLeave * CtrlPClearAllCaches
@@ -272,9 +244,6 @@ let g:ctrlp_prompt_mappings = {
             \ }
 
 let g:ctrlp_reuse_window = 'startify'
-" if has('unix')
-    " let g:ctrlp_user_command = 'git ls-files -co --exclude-standard $(git rev-parse --show-toplevel 2> /dev/null) 2> /dev/null || find %s -type f'
-" en
 
 " Dicts
 "
@@ -387,16 +356,49 @@ let g:go_fmt_command = "goimports"
 " --------------------------------------------------------------------
 " Keys
 " --------------------------------------------------------------------
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+if has("unix")
+    com! W w !sudo tee % > /dev/null
+en
+
+" Press o to open file in quickfix window
+au BufReadPost quickfix nn <buffer> <silent> o <CR>
+
+" Shortcut keys for searching
 vn <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vn <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 nn <silent> ; :Rgrep<CR>
 
+" Window management
 nn <leader>ww :ToggleBufExplorer<CR>
 nn <leader>wf :NERDTreeFind<CR>
 nn <leader>wh :NERDTreeToggle<CR>
 nn <leader>wl :TagbarToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
 
+" Automatically insert pairs of characters
+func! AutoPairMap(...)
+    let map = {
+                \'"': '""<left>',
+                \"'": "''<left>",
+                \'`': '``<left>',
+                \'(': '()<left>',
+                \'[': '[]<left>',
+                \'{<CR>': '{}<ESC>i<CR><ESC>O'
+                \}
+    for key in keys(map)
+        if (a:0 > 0 && a:1 == 1) || mapcheck(key, 'i') == ""
+            exe "inoremap " . key . " " . map[key]
+        else
+            exe "iunmap " . key
+        en
+    endfor
+endf
+call AutoPairMap(1)
+
+" Use <Tab> and <S-TAB> to switch tabs easily~
 if exists('g:airline#extensions#tabline#enabled')
             \ && g:airline#extensions#tabline#enabled
     nm <TAB> <Plug>AirlineSelectNextTab
