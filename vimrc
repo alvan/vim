@@ -56,9 +56,9 @@ let g:colors_name = "solarized"
 if has("mac")
     set guifont=Yahei\ Mono:h13
 elseif has("unix")
-    set guifont=Yahei\ Mono\ 10
+    set guifont=Yahei\ Mono\ 12
 else
-    set guifont=Yahei\ Mono:h10
+    set guifont=Yahei\ Mono:h12
 en
 
 set laststatus=2
