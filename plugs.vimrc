@@ -1,4 +1,3 @@
-Plug '2072/PHP-Indenting-for-VIm'
 Plug 'SirVer/ultisnips'
 Plug 'altercation/vim-colors-solarized'
 Plug 'alvan/vim-assistant'
