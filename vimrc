@@ -406,19 +406,16 @@ if exists('g:airline#extensions#tabline#enabled')
 en
 
 " --------------------------------------------------------------------
-" Rtps
+" Plug
 " --------------------------------------------------------------------
 
 filetype off                 " required
 
-set rtp+=$VIMDIR/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-source $VIMDIR/bundle.vimrc
-call vundle#end()
+call plug#begin()
+source $VIMDIR/plugins.vimrc
+call plug#end()
 
 filetype plugin indent on    " required
-
 syntax on
 
 " --------------------------------------------------------------------
