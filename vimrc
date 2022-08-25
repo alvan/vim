@@ -412,7 +412,7 @@ en
 filetype off                 " required
 
 call plug#begin()
-source $VIMDIR/plugins.vimrc
+source $VIMDIR/plugs.vimrc
 call plug#end()
 
 filetype plugin indent on    " required
