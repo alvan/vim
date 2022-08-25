@@ -254,10 +254,6 @@ let g:dict_spec = {
             \ 'javascript': ['js'],
             \ }
 
-" DrawIt
-"
-let g:DrChipTopLvlMenu = "Tools."
-
 " Grep
 "
 " The serach term is quoted by single quote,
@@ -277,10 +273,6 @@ let g:PHP_vintage_case_default_indent = 1
 " Markdown
 "
 let g:vim_markdown_folding_disabled = 1
-
-" MiniBufExpl
-"
-let g:miniBufExplDebugLevel = 0
 
 " NERDTree
 "
@@ -350,8 +342,6 @@ let g:vdebug_options['path_maps'] = {'/data/':$HOME.'/', '/media/sf_':$HOME.'/'}
 
 " Vim-Go
 "
-let g:go_bin_path = expand("$GOPATH/bin/")
-let g:go_fmt_command = "goimports"
 
 " --------------------------------------------------------------------
 " Keys
