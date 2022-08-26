@@ -1,4 +1,4 @@
 #!/bin/sh
 DIR="$(cd "$(dirname "$0")"; pwd)"
 
-${DIR}/setup/plug.sh
+${DIR}/setup/plugs.sh
