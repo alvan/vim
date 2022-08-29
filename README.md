@@ -1,5 +1,5 @@
-~.vim
-=====
+~/.vim
+======
 
 Vim configurations.
 
