@@ -54,11 +54,11 @@ set background=dark
 let g:colors_name = "solarized"
 
 if has("mac")
-    set guifont=Yahei\ Mono:h13
+    set guifont=Consolas-with-Yahei:h13
 elseif has("unix")
-    set guifont=Yahei\ Mono\ 12
+    set guifont=Consolas-with-Yahei\ 13
 else
-    set guifont=Yahei\ Mono:h12
+    set guifont=Consolas-with-Yahei:h13
 en
 
 set laststatus=2
@@ -71,10 +71,10 @@ set nosmd
 set shortmess=atI
 set scrolloff=5
 
-" set cc=80
 set nu!
 set cul
 " set cuc
+" set cc=120
 
 set ambiwidth=double
 set smartcase
@@ -92,8 +92,11 @@ set smartindent " next level indent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+
+" set listchars=
+" set listchars+=tab:⋮\\x20
+" set listchars+=leadmultispace:⋮\\x20\\x20\\x20
 " set list
-" set listchars=tab:>-,trail:-
 
 set foldmethod=indent   " fold based on indent
 set foldnestmax=3       " deepest fold is 3 levels
@@ -177,24 +180,20 @@ let g:airline_mode_map = {
             \ '' : 'S-B',
             \ }
 
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-" let g:airline_right_sep = '⮂'
-" let g:airline_right_alt_sep = '⮃'
 
-" let g:airline_symbols = {}
-" let g:airline_symbols.branch = '⭠'
-" let g:airline_symbols.readonly = '⭤'
-" let g:airline_symbols.linenr = '⭡'
+" Set this variable only if you have the powerline font:
+let g:airline_powerline_fonts = 1
+
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.dirty = ''
 
 let g:airline#extensions#tagbar#enabled = 0
-
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = g:airline_left_sep
-let g:airline#extensions#tabline#left_alt_sep = g:airline_left_alt_sep
-" let g:airline#extensions#tabline#right_sep = g:airline_right_sep
-" let g:airline#extensions#tabline#right_alt_sep = g:airline_right_alt_sep
-" let g:airline#extensions#tabline#buffers_label = 'Bufs'
 let g:airline#extensions#tabline#buffers_label = ''
 let g:airline#extensions#tabline#tabs_label = 'Tabs'
 let g:airline#extensions#tabline#fnamemod = ':p:t'
