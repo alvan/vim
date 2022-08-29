@@ -20,4 +20,4 @@ if command -v fc-cache @>/dev/null ; then
     fc-cache -vf $font_dir
 fi
 
-echo "Powerline fonts installed to $font_dir"
+echo "Fonts installed to $font_dir"
