@@ -9,18 +9,18 @@ call has('python3')
 " --------------------------------------------------------------------
 if !exists('$VIMDIR')
     let $VIMDIR = has('unix') ? $HOME . "/.vim" : $VIM . "/vimfiles"
-en
+endif
 
 if !exists('$VIMDOT')
     let $VIMDOT = has('unix') ? '.' : '_'
-en
+endif
 
 " --------------------------------------------------------------------
 " Mode
 " --------------------------------------------------------------------
 if has('mouse')
     set mouse=a
-en
+endif
 set clipboard+=unnamed
 
 set noeb
@@ -59,7 +59,7 @@ elseif has("unix")
     set guifont=Consolas-with-Yahei\ 13
 else
     set guifont=Consolas-with-Yahei:h13
-en
+endif
 
 set laststatus=2
 set statusline=\ %F\ %Y\ %{&fileformat}\ %{&fileencoding}\ %{(&bomb?\"[BOM]\":\"\")}\ Row\ \[%l/%L\ %<%P]\ Col\ \[%c%V]\ \ %m\ %r
@@ -124,13 +124,13 @@ func! GotoExitPos()
                 \ && &ft !~# '\(commit\|rebase\|svn\)'
                 \ && &bt !~# '^\(quickfix\|terminal\|nofile\|help|prompt|popup\)$'
         exe 'normal! g`"'
-    en
-endf
+    endif
+endfunction
 au BufWinEnter * call GotoExitPos()
 
 func! ExecUserLcd()
     silent! lcd %:p:h
-endf
+endfunction
 au BufEnter * call ExecUserLcd()
 
 func! QuitIfNoWin()
@@ -142,17 +142,17 @@ func! QuitIfNoWin()
                     \ && t != "tagbar"
                     \ && t != "qf"
             return
-        en
+        endif
 
         let n -= 1
-    endw
+    endwhile
 
     if tabpagenr('$') == 1
         exe 'qa'
     else
         exe 'tabclose'
-    en
-endf
+    endif
+endfunction
 au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 
 " --------------------------------------------------------------------
@@ -331,7 +331,7 @@ if g:colors_name == 'solarized' && &background == 'dark'
                 \       'ctermbg': '2',
                 \   }
                 \ }
-en
+endif
 
 let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewResult = {
@@ -414,7 +414,7 @@ let g:tagbar_autoclose_netrw = 0
 "
 if has('python')
     let g:UltiSnipsUsePythonVersion = 2
-en
+endif
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsSnippetDirectories = ["snips", "UltiSnips"]
 
@@ -422,7 +422,7 @@ let g:UltiSnipsSnippetDirectories = ["snips", "UltiSnips"]
 "
 if !exists("g:vdebug_options")
     let g:vdebug_options = {}
-en
+endif
 " let g:vdebug_options['server'] = '192.168.56.1'
 let g:vdebug_options['server'] = ''
 let g:vdebug_options['port'] = 9001
@@ -439,7 +439,7 @@ let g:vdebug_options['path_maps'] = {'/data/':$HOME.'/', '/media/sf_':$HOME.'/'}
 " (useful for handling the permission-denied error)
 if has("unix")
     com! W w !sudo tee % > /dev/null
-en
+endif
 
 " Press o to open file in quickfix window
 au BufReadPost quickfix nn <buffer> <silent> o <CR>
@@ -471,9 +471,9 @@ func! AutoPairMap(...)
             exe "inoremap " . key . " " . map[key]
         else
             exe "iunmap " . key
-        en
+        endif
     endfor
-endf
+endfunction
 call AutoPairMap(1)
 
 " Use <Tab> and <S-TAB> to switch tabs easily~
@@ -481,7 +481,7 @@ if exists('g:airline#extensions#tabline#enabled')
             \ && g:airline#extensions#tabline#enabled
     nm <TAB> <Plug>AirlineSelectNextTab
     nm <S-TAB> <Plug>AirlineSelectPrevTab
-en
+endif
 
 " --------------------------------------------------------------------
 " Plug
