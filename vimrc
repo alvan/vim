@@ -266,6 +266,98 @@ let g:Grep_Run_Async = 0
 let g:Grep_Skip_Dirs = '.git RCS CVS SCCS'
 let g:Grep_Skip_Files = '*~ *,v s.* *.pyc *.swp *.jpg *.png'
 
+" LeaderF
+"
+let g:Lf_HideHelp = 1
+let g:Lf_WindowHeight = 0.3
+let g:Lf_ShowDevIcons = 0
+let g:Lf_StlColorscheme = 'default'
+if g:colors_name == 'solarized' && &background == 'dark'
+    let g:Lf_StlPalette = {
+                \   'stlName': {
+                \       'guifg': '#fdf6e3',
+                \       'guibg': '#839496',
+                \       'ctermfg': '15',
+                \       'ctermbg': '12',
+                \   },
+                \   'stlCategory': {
+                \       'guifg': '#eee8d5',
+                \       'guibg': '#586e75',
+                \       'ctermfg': '7',
+                \       'ctermbg': '10',
+                \   },
+                \   'stlNameOnlyMode': {
+                \       'guifg': '#073642',
+                \       'guibg': '#b58900',
+                \       'ctermfg': '0',
+                \       'ctermbg': '3',
+                \   },
+                \   'stlFullPathMode': {
+                \       'guifg': '#073642',
+                \       'guibg': '#2aa198',
+                \       'ctermfg': '0',
+                \       'ctermbg': '6',
+                \   },
+                \   'stlFuzzyMode': {
+                \       'guifg': '#002b36',
+                \       'guibg': '#b58900',
+                \       'ctermfg': '8',
+                \       'ctermbg': '3',
+                \   },
+                \   'stlRegexMode': {
+                \       'guifg': '#073642',
+                \       'guibg': '#268bd2',
+                \       'ctermfg': '0',
+                \       'ctermbg': '4',
+                \   },
+                \   'stlCwd': {
+                \       'guifg': '#fdf6e3',
+                \       'guibg': '#586e75',
+                \       'ctermfg': '15',
+                \       'ctermbg': '10',
+                \   },
+                \   'stlBlank': {
+                \       'guifg': 'NONE',
+                \       'guibg': '#073642',
+                \       'ctermbg': '0',
+                \   },
+                \   'stlLineInfo': {
+                \       'guifg': '#fdf6e3',
+                \       'guibg': '#586e75',
+                \       'ctermfg': '15',
+                \       'ctermbg': '10',
+                \   },
+                \   'stlTotal': {
+                \       'guifg': '#002b36',
+                \       'guibg': '#859900',
+                \       'ctermfg': '8',
+                \       'ctermbg': '2',
+                \   }
+                \ }
+en
+
+let g:Lf_PreviewInPopup = 1
+let g:Lf_PreviewResult = {
+            \ 'File': 0,
+            \ 'Buffer': 0,
+            \ 'Mru': 0,
+            \ 'Tag': 1,
+            \ 'BufTag': 1,
+            \ 'Function': 1,
+            \ 'Line': 1,
+            \ 'Colorscheme': 1,
+            \ 'Rg': 0,
+            \ 'Gtags': 0
+            \}
+let g:Lf_WorkingDirectoryMode = 'AF'
+let g:Lf_RootMarkers = ['.git', '.svn', '.hg', '.project', '.root']
+let g:Lf_WildIgnore = {
+            \ 'dir': ['.svn','.git','.hg'],
+            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]','*.ico','*.jpeg','*.jpg','*.png','*.gif','*.psd']
+            \}
+let g:Lf_DefaultExternalTool = 'rg'
+let g:Lf_UseVersionControlTool = 0
+
 " PHP indent
 let g:PHP_vintage_case_default_indent = 1
 

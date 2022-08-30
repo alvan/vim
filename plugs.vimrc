@@ -29,4 +29,5 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/CmdlineComplete'
 Plug 'vim-scripts/matchit.zip'
 Plug 'yegappan/grep'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'zivyangll/git-blame.vim'
