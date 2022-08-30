@@ -221,6 +221,7 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx,*.vue,*.tmpl"
 let g:ctrlp_reuse_window = 'startify'
 let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 100
+let g:ctrlp_lazy_update = 100
 let g:ctrlp_use_caching = 0
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
