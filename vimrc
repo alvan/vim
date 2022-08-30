@@ -218,7 +218,10 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx,*.vue,*.tmpl"
 
 " CtrlP
 "
-let g:ctrlp_use_caching = 1
+let g:ctrlp_reuse_window = 'startify'
+let g:ctrlp_max_files = 100000
+let g:ctrlp_max_depth = 100
+let g:ctrlp_use_caching = 0
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window = 'order:ttb,max:16,results:30'
@@ -226,10 +229,6 @@ let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
             \ 'file': '\v\.(swp|pkg|dmg|exe|so|dll|pyc|doc|docx|pdf|jpg|jpeg|png|gif|bmp|tar|gz|zip|rar)$',
             \ }
-if exists('g:ctrlp_clear_cache_on_exit') && g:ctrlp_clear_cache_on_exit
-    au VimLeave * CtrlPClearAllCaches
-en
-
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_extensions = ['quickfix', 'mark', 'tag', 'mixed', 'modified']
 let g:ctrlp_root_markers = ['root.dir', '.root.dir', '.git', '.hg']
@@ -241,8 +240,6 @@ let g:ctrlp_prompt_mappings = {
             \ 'ToggleRegex()':        ['<c-r>'],
             \ 'PrtExpandDir()':       [''],
             \ }
-
-let g:ctrlp_reuse_window = 'startify'
 
 " Dicts
 "
