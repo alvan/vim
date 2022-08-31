@@ -219,6 +219,7 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.jsx,*.vue,*.tmpl"
 " CtrlP
 "
 let g:ctrlp_reuse_window = 'startify'
+let g:ctrlp_open_multiple_files = '1r'
 let g:ctrlp_max_files = 100000
 let g:ctrlp_max_depth = 100
 let g:ctrlp_lazy_update = 100
