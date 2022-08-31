@@ -128,11 +128,6 @@ func! GotoExitPos()
 endfunction
 au BufWinEnter * call GotoExitPos()
 
-func! ExecUserLcd()
-    silent! lcd %:p:h
-endfunction
-au BufEnter * call ExecUserLcd()
-
 func! QuitIfNoWin()
     let n = winnr('$')
     while n >= 0
@@ -457,6 +452,9 @@ nn <leader>wf :NERDTreeFind<CR>
 nn <leader>wh :NERDTreeToggle<CR>
 nn <leader>wl :TagbarToggle<CR>
 nn <leader>wm :TagbarToggle<CR>:NERDTreeToggle<CR>
+
+" Set the current directory
+nn <leader>cd :lcd <C-R>=expand('%:p:h')<CR>
 
 " Automatically insert pairs of characters
 func! AutoPairMap(...)
