@@ -266,6 +266,7 @@ let g:Lf_HideHelp = 1
 let g:Lf_WindowHeight = 0.3
 let g:Lf_ShowDevIcons = 0
 let g:Lf_StlColorscheme = 'default'
+let g:Lf_PopupColorscheme = 'gruvbox_default'
 if g:colors_name == 'solarized' && &background == 'dark'
     let g:Lf_StlPalette = {
                 \   'stlName': {
