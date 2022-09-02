@@ -270,8 +270,7 @@ let g:Lf_WindowHeight = 0.3
 let g:Lf_ShowDevIcons = 0
 let g:Lf_StlColorscheme = 'default'
 let g:Lf_PopupColorscheme = 'gruvbox_default'
-if exists('g:colors_name') && stridx(g:colors_name, 'olarized') >= 0
-            \ && &background == 'dark'
+if exists('g:colors_name') && stridx(tolower(g:colors_name), 'solarized') >= 0
     let g:Lf_StlPalette = {
                 \   'stlName': {
                 \       'guifg': '#fdf6e3',
@@ -318,6 +317,7 @@ if exists('g:colors_name') && stridx(g:colors_name, 'olarized') >= 0
                 \   'stlBlank': {
                 \       'guifg': 'NONE',
                 \       'guibg': '#073642',
+                \       'ctermfg': 'NONE',
                 \       'ctermbg': '0',
                 \   },
                 \   'stlLineInfo': {
@@ -333,6 +333,15 @@ if exists('g:colors_name') && stridx(g:colors_name, 'olarized') >= 0
                 \       'ctermbg': '2',
                 \   }
                 \ }
+
+    if &background == 'light'
+        let g:Lf_StlPalette.stlBlank = {
+                    \     'guifg': 'NONE',
+                    \     'guibg': '#eee8d5',
+                    \     'ctermfg': 'NONE',
+                    \     'ctermbg': '7',
+                    \ }
+    endif
 endif
 
 let g:Lf_PreviewInPopup = 1
