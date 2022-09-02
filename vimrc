@@ -50,8 +50,11 @@ set fencs=ucs-bom,utf-8,cp936,gb18030,gbk,gb2312
 " set bin
 
 set t_Co=256
+if has("gui_running")
+    set termguicolors
+en
 set background=dark
-let g:colors_name = "solarized"
+let g:colors_name = "NeoSolarized"
 
 if has("mac")
     set guifont=Consolas-with-Yahei:h13
@@ -267,7 +270,8 @@ let g:Lf_WindowHeight = 0.3
 let g:Lf_ShowDevIcons = 0
 let g:Lf_StlColorscheme = 'default'
 let g:Lf_PopupColorscheme = 'gruvbox_default'
-if g:colors_name == 'solarized' && &background == 'dark'
+if exists('g:colors_name') && stridx(g:colors_name, 'olarized') >= 0
+            \ && &background == 'dark'
     let g:Lf_StlPalette = {
                 \   'stlName': {
                 \       'guifg': '#fdf6e3',
@@ -353,6 +357,23 @@ let g:Lf_WildIgnore = {
 let g:Lf_DefaultExternalTool = 'rg'
 let g:Lf_UseVersionControlTool = 0
 
+" FZF
+let g:fzf_colors = {
+            \ 'fg':      ['fg', 'Normal'],
+            \ 'bg':      ['bg', 'Normal'],
+            \ 'hl':      ['fg', 'Comment'],
+            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+            \ 'hl+':     ['fg', 'Statement'],
+            \ 'info':    ['fg', 'PreProc'],
+            \ 'border':  ['fg', 'Ignore'],
+            \ 'prompt':  ['fg', 'Conditional'],
+            \ 'pointer': ['fg', 'Exception'],
+            \ 'marker':  ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header':  ['fg', 'Comment']
+            \ }
+
 " PHP indent
 let g:PHP_vintage_case_default_indent = 1
 
@@ -372,6 +393,13 @@ let g:NERDTreeCascadeOpenSingleChildDir = 0
 "
 let g:solarized_menu = 0
 let g:solarized_termtrans = 1
+
+" NeoSolarized
+"
+let g:neosolarized_vertSplitBgTrans = 0
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 1
+let g:neosolarized_italic = 1
 
 " Startify
 "
