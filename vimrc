@@ -344,19 +344,15 @@ if exists('g:colors_name') && stridx(tolower(g:colors_name), 'solarized') >= 0
     endif
 endif
 
-let g:Lf_PreviewInPopup = 1
+let g:Lf_NormalMap = {
+            \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
+            \ "Colorscheme": [["<ESC>", ':exec g:Lf_py "colorschemeExplManager.quit()"<CR>']]
+            \ }
 let g:Lf_PreviewResult = {
             \ 'File': 0,
-            \ 'Buffer': 0,
-            \ 'Mru': 0,
-            \ 'Tag': 1,
-            \ 'BufTag': 1,
-            \ 'Function': 1,
-            \ 'Line': 1,
-            \ 'Colorscheme': 1,
-            \ 'Rg': 0,
-            \ 'Gtags': 0
+            \ 'Colorscheme': 1
             \}
+let g:Lf_PreviewInPopup = 1
 let g:Lf_WorkingDirectoryMode = 'AF'
 let g:Lf_RootMarkers = ['.git', '.svn', '.hg', '.project', '.root']
 let g:Lf_WildIgnore = {
