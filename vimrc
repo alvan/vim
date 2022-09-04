@@ -224,14 +224,14 @@ let g:ctrlp_lazy_update = 100
 let g:ctrlp_use_caching = 0
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_match_window = 'order:ttb,max:16,results:30'
+let g:ctrlp_match_window = 'order:ttb,max:20,results:20'
 let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
             \ 'file': '\v\.(swp|pkg|dmg|exe|so|dll|pyc|doc|docx|pdf|jpg|jpeg|png|gif|bmp|tar|gz|zip|rar)$',
             \ }
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_extensions = ['quickfix', 'mark', 'tag', 'mixed', 'modified']
-let g:ctrlp_root_markers = ['root.dir', '.root.dir', '.git', '.hg']
+let g:ctrlp_root_markers = ['.project', '.root', 'root.dir', '.root.dir', '.git', '.hg']
 let g:ctrlp_prompt_mappings = {
             \ 'PrtBS()':              ['<bs>'],
             \ 'PrtSelectMove("j")':   ['<tab>', '<c-j>', '<down>'],
@@ -240,6 +240,29 @@ let g:ctrlp_prompt_mappings = {
             \ 'ToggleRegex()':        ['<c-r>'],
             \ 'PrtExpandDir()':       [''],
             \ }
+
+" CtrlSF
+"
+let g:ctrlsf_parse_speed = 600
+let g:ctrlsf_populate_qflist = 1
+let g:ctrlsf_default_root = 'project+ww'
+let g:ctrlsf_extra_root_markers = ['.project', '.root', 'root.dir', '.root.dir']
+let g:ctrlsf_ignore_dir = ['.git', '.hg', '.svn', 'bower_components', 'node_modules']
+let g:ctrlsf_auto_focus = {
+            \ "at" : "start"
+            \ }
+let g:ctrlsf_auto_close = {
+            \ "normal" : 0,
+            \ "compact": 0
+            \ }
+let g:ctrlsf_indent = 2
+let g:ctrlsf_context = '-C 2'
+let g:ctrlsf_compact_winsize = '40%'
+" let g:ctrlsf_default_view_mode = 'compact'
+function! g:CtrlSFAfterMainWindowInit()
+    setl nu
+endfunction
+nnoremap <leader>s :CtrlSF<space>
 
 " Dicts
 "
@@ -250,6 +273,23 @@ let g:dict_spec = {
             \ 'javascript': ['js'],
             \ }
 
+" FZF
+let g:fzf_colors = {
+            \ 'fg':      ['fg', 'Normal'],
+            \ 'bg':      ['bg', 'Normal'],
+            \ 'hl':      ['fg', 'Comment'],
+            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+            \ 'hl+':     ['fg', 'Statement'],
+            \ 'info':    ['fg', 'PreProc'],
+            \ 'border':  ['fg', 'Ignore'],
+            \ 'prompt':  ['fg', 'Conditional'],
+            \ 'pointer': ['fg', 'Exception'],
+            \ 'marker':  ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header':  ['fg', 'Comment']
+            \ }
+
 " Grep
 "
 " The serach term is quoted by single quote,
@@ -258,15 +298,14 @@ let g:dict_spec = {
 " ex:
 " 'key' => '"'key'"'
 "
-"
-let g:Grep_Run_Async = 0
-let g:Grep_Skip_Dirs = '.git RCS CVS SCCS'
-let g:Grep_Skip_Files = '*~ *,v s.* *.pyc *.swp *.jpg *.png'
+" let g:Grep_Run_Async = 0
+let g:Grep_Skip_Dirs = '.git node_modules RCS CVS SCCS'
+let g:Grep_Skip_Files = '*~ *,v s.* *.pyc *.swp *.jpg *.jpeg *.png *.gif *pkg *.dmg *.exe *.so *.dll *.doc *.docx *.pdf *.tar *.gz *.zip *.rar'
 
 " LeaderF
 "
 let g:Lf_HideHelp = 1
-let g:Lf_WindowHeight = 0.3
+let g:Lf_WindowHeight = 0.4
 let g:Lf_ShowDevIcons = 0
 let g:Lf_StlColorscheme = 'default'
 let g:Lf_PopupColorscheme = 'gruvbox_default'
@@ -354,30 +393,13 @@ let g:Lf_PreviewResult = {
             \}
 let g:Lf_PreviewInPopup = 1
 let g:Lf_WorkingDirectoryMode = 'AF'
-let g:Lf_RootMarkers = ['.git', '.svn', '.hg', '.project', '.root']
+let g:Lf_RootMarkers = ['.git', '.svn', '.hg', '.project', '.root', 'root.dir', '.root.dir']
 let g:Lf_WildIgnore = {
             \ 'dir': ['.svn','.git','.hg'],
             \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]','*.ico','*.jpeg','*.jpg','*.png','*.gif','*.psd']
             \}
 let g:Lf_DefaultExternalTool = 'rg'
 let g:Lf_UseVersionControlTool = 0
-
-" FZF
-let g:fzf_colors = {
-            \ 'fg':      ['fg', 'Normal'],
-            \ 'bg':      ['bg', 'Normal'],
-            \ 'hl':      ['fg', 'Comment'],
-            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-            \ 'hl+':     ['fg', 'Statement'],
-            \ 'info':    ['fg', 'PreProc'],
-            \ 'border':  ['fg', 'Ignore'],
-            \ 'prompt':  ['fg', 'Conditional'],
-            \ 'pointer': ['fg', 'Exception'],
-            \ 'marker':  ['fg', 'Keyword'],
-            \ 'spinner': ['fg', 'Label'],
-            \ 'header':  ['fg', 'Comment']
-            \ }
 
 " PHP indent
 let g:PHP_vintage_case_default_indent = 1
