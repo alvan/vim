@@ -241,29 +241,6 @@ let g:ctrlp_prompt_mappings = {
             \ 'PrtExpandDir()':       [''],
             \ }
 
-" CtrlSF
-"
-let g:ctrlsf_parse_speed = 600
-let g:ctrlsf_populate_qflist = 1
-let g:ctrlsf_default_root = 'project+ww'
-let g:ctrlsf_extra_root_markers = ['.project', '.root', 'root.dir', '.root.dir']
-let g:ctrlsf_ignore_dir = ['.git', '.hg', '.svn', 'bower_components', 'node_modules']
-let g:ctrlsf_auto_focus = {
-            \ "at" : "start"
-            \ }
-let g:ctrlsf_auto_close = {
-            \ "normal" : 0,
-            \ "compact": 0
-            \ }
-let g:ctrlsf_indent = 2
-let g:ctrlsf_context = '-C 2'
-let g:ctrlsf_compact_winsize = '40%'
-" let g:ctrlsf_default_view_mode = 'compact'
-function! g:CtrlSFAfterMainWindowInit()
-    setl nu
-endfunction
-nnoremap <leader>s :CtrlSF<space>
-
 " Dicts
 "
 let g:dict_spec = {
@@ -290,18 +267,6 @@ let g:fzf_colors = {
             \ 'header':  ['fg', 'Comment']
             \ }
 
-" Grep
-"
-" The serach term is quoted by single quote,
-" so if we need to search single quote, we should close the single quote first,
-" and then use double quote to wrap the search term.
-" ex:
-" 'key' => '"'key'"'
-"
-" let g:Grep_Run_Async = 0
-let g:Grep_Skip_Dirs = '.git node_modules RCS CVS SCCS'
-let g:Grep_Skip_Files = '*~ *,v s.* *.pyc *.swp *.jpg *.jpeg *.png *.gif *pkg *.dmg *.exe *.so *.dll *.doc *.docx *.pdf *.tar *.gz *.zip *.rar'
-
 " LeaderF
 "
 let g:Lf_HideHelp = 1
@@ -324,16 +289,16 @@ if exists('g:colors_name') && stridx(tolower(g:colors_name), 'solarized') >= 0
                 \       'ctermbg': '10',
                 \   },
                 \   'stlNameOnlyMode': {
-                \       'guifg': '#073642',
-                \       'guibg': '#b58900',
-                \       'ctermfg': '0',
-                \       'ctermbg': '3',
+                \       'guifg': '#eee8d5',
+                \       'guibg': '#2aa198',
+                \       'ctermfg': '8',
+                \       'ctermbg': '6',
                 \   },
                 \   'stlFullPathMode': {
-                \       'guifg': '#073642',
-                \       'guibg': '#2aa198',
-                \       'ctermfg': '0',
-                \       'ctermbg': '6',
+                \       'guifg': '#eee8d5',
+                \       'guibg': '#b58900',
+                \       'ctermfg': '7',
+                \       'ctermbg': '3',
                 \   },
                 \   'stlFuzzyMode': {
                 \       'guifg': '#002b36',
@@ -366,10 +331,10 @@ if exists('g:colors_name') && stridx(tolower(g:colors_name), 'solarized') >= 0
                 \       'ctermbg': '10',
                 \   },
                 \   'stlTotal': {
-                \       'guifg': '#002b36',
-                \       'guibg': '#859900',
-                \       'ctermfg': '8',
-                \       'ctermbg': '2',
+                \       'guifg': '#fdf6e3',
+                \       'guibg': '#839496',
+                \       'ctermfg': '15',
+                \       'ctermbg': '12',
                 \   }
                 \ }
 
@@ -411,6 +376,7 @@ let g:vim_markdown_folding_disabled = 1
 " NERDTree
 "
 let g:NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize = 36
 let g:NERDTreeIgnore = ['\~$', '\.pyc$', '\.DS_Store']
 let g:NERDTreeHijackNetrw = 0
 let g:NERDTreeCascadeSingleChildDir = 0
@@ -500,7 +466,6 @@ au BufReadPost quickfix nn <buffer> <silent> o <CR>
 " Shortcut keys for searching
 vn <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vn <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-nn <silent> ; :Rgrep<CR>
 
 " Window management
 nn <leader>ww :ToggleBufExplorer<CR>
