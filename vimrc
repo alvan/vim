@@ -366,7 +366,13 @@ let g:Lf_WildIgnore = {
 let g:Lf_DefaultExternalTool = 'rg'
 let g:Lf_UseVersionControlTool = 0
 
+" LeaderG
+"
+let g:leaderg_default_mode = 'dirs'
+
+
 " PHP indent
+"
 let g:PHP_vintage_case_default_indent = 1
 
 " Markdown
