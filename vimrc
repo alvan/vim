@@ -427,7 +427,7 @@ let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
 "
 let g:tagbar_left = 0
 let g:tagbar_sort = 0
-let g:tagbar_width = 30
+let g:tagbar_width = 32
 let g:tagbar_compact = 1
 let g:tagbar_autoclose = 0
 let g:tagbar_iconchars = ['+', '-']
