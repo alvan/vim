@@ -157,10 +157,6 @@ au BufEnter,BufDelete,BufWinLeave * call QuitIfNoWin()
 " Conf
 " --------------------------------------------------------------------
 
-" Comment
-"
-let g:comment_format = {'php': '// %s'}
-
 " Airline
 "
 let g:airline_skip_empty_sections = 1
@@ -190,6 +186,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.dirty = ''
 
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffers_label = ''
@@ -199,12 +196,24 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#buffer_nr_format = ' %s: '
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
+"  ALE
+"
+let g:ale_fix_on_save = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+
 " BufExplorer
 "
 let g:bufExplorerSortBy = 'number'
 let g:bufExplorerShowNoName = 1
 let g:bufExplorerShowTabBuffer = 1
 let g:bufExplorerDisableDefaultKeyMapping = 1
+
+" Comment
+"
+let g:comment_format = {'php': '// %s'}
 
 " Indexer
 "
