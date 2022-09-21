@@ -206,11 +206,11 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
-let g:ale_fixers = {
-            \   'javascript': ['prettier', 'eslint'],
-            \   'vue': ['prettier', 'eslint'],
-            \   'php': ['php_cs_fixer'],
-            \}
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['prettier', 'eslint']
+let g:ale_fixers.html = ['prettier']
+let g:ale_fixers.json = ['prettier']
+let g:ale_fixers.vue = ['prettier', 'eslint']
 
 " BufExplorer
 "
@@ -524,6 +524,11 @@ if exists('g:airline#extensions#tabline#enabled')
             \ && g:airline#extensions#tabline#enabled
     nm <TAB> <Plug>AirlineSelectNextTab
     nm <S-TAB> <Plug>AirlineSelectPrevTab
+endif
+
+" Use <leader>p to format file
+if exists('g:ale_fixers')
+    nn <leader>p :ALEFix<CR>
 endif
 
 " --------------------------------------------------------------------
