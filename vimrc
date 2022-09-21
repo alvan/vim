@@ -208,9 +208,18 @@ let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['prettier', 'eslint']
-let g:ale_fixers.html = ['prettier']
+let g:ale_fixers.html = ['html-beautify']
 let g:ale_fixers.json = ['prettier']
 let g:ale_fixers.vue = ['prettier', 'eslint']
+let g:ale_fixers.php = ['php_cs_fixer']
+
+" Autoformat
+"
+let g:autoformat_verbosemode = 0
+let g:formatters_vue = ['prettier', 'eslint_local']
+let g:run_all_formatters_vue = 1
+let g:formatters_javascript = ['prettier', 'eslint_local']
+let g:run_all_formatters_javascript = 1
 
 " BufExplorer
 "
@@ -485,6 +494,11 @@ endif
 " Press o to open file in quickfix window
 au BufReadPost quickfix nn <buffer> <silent> o <CR>
 
+" Use <leader>p to format file
+if exists('g:autoformat_verbosemode')
+    nn <leader>p :Autoformat<CR>
+endif
+
 " Shortcut keys for searching
 vn <silent> * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vn <silent> # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
@@ -524,11 +538,6 @@ if exists('g:airline#extensions#tabline#enabled')
             \ && g:airline#extensions#tabline#enabled
     nm <TAB> <Plug>AirlineSelectNextTab
     nm <S-TAB> <Plug>AirlineSelectPrevTab
-endif
-
-" Use <leader>p to format file
-if exists('g:ale_fixers')
-    nn <leader>p :ALEFix<CR>
 endif
 
 " --------------------------------------------------------------------
