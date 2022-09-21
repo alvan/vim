@@ -52,7 +52,7 @@ set fencs=ucs-bom,utf-8,cp936,gb18030,gbk,gb2312
 set t_Co=256
 if has("gui_running")
     set termguicolors
-en
+endif
 set background=dark
 let g:colors_name = "NeoSolarized"
 

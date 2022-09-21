@@ -30,6 +30,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-autoformat/vim-autoformat'
 Plug 'vim-scripts/CmdlineComplete'
 Plug 'vim-scripts/matchit.zip'
 " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
