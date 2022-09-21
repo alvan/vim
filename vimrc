@@ -196,7 +196,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#buffer_nr_format = ' %s: '
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-"  ALE
+"  Ale
 "
 let g:ale_set_quickfix = 0
 let g:ale_set_loclist = 0
@@ -206,7 +206,11 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
-
+let g:ale_fixers = {
+            \   'javascript': ['prettier', 'eslint'],
+            \   'vue': ['prettier', 'eslint'],
+            \   'php': ['php_cs_fixer'],
+            \}
 
 " BufExplorer
 "
@@ -382,7 +386,6 @@ let g:Lf_UseVersionControlTool = 0
 " LeaderG
 "
 let g:leaderg_default_mode = 'dirs'
-
 
 " PHP indent
 "
