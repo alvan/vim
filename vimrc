@@ -418,6 +418,11 @@ let g:NERDTreeHijackNetrw = 0
 let g:NERDTreeCascadeSingleChildDir = 0
 let g:NERDTreeCascadeOpenSingleChildDir = 0
 
+" qf-preview
+"
+let g:qfpreview = {}
+let g:qfpreview['number'] = 1
+
 " Solarized
 "
 let g:solarized_menu = 0
@@ -444,14 +449,6 @@ au User Startified nmap <buffer> o <plug>(startify-open-buffers)
 " Supertab
 "
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" Syntastic
-"
-let g:syntastic_error_symbol = "*"
-let g:syntastic_warning_symbol = "!"
-let g:syntastic_stl_format = '[%E{*:%fe ~%e}%B{, }%W{!:%fw ~%w}]'
-let g:syntastic_quiet_messages = { "level": "warnings", "type": "style" }
-" let g:syntastic_ignore_files = ['\m\c\.go$']
 
 " Tagbar
 "
@@ -495,9 +492,6 @@ let g:vdebug_options['path_maps'] = {'/data/':$HOME.'/', '/media/sf_':$HOME.'/'}
 if has("unix")
     com! W w !sudo tee % > /dev/null
 endif
-
-" Press o to open file in quickfix window
-au BufReadPost quickfix nn <buffer> <silent> o <CR>
 
 " Use <leader>p to format file
 if exists('g:autoformat_verbosemode')
