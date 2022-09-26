@@ -422,6 +422,8 @@ let g:NERDTreeCascadeOpenSingleChildDir = 0
 "
 let g:qfpreview = {}
 let g:qfpreview['number'] = 1
+let g:qfpreview['offset'] = 0
+let g:qfpreview['close'] = "\<Esc>"
 
 " Solarized
 "
