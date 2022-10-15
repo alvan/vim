@@ -303,7 +303,83 @@ let g:fzf_colors = {
 let g:Lf_HideHelp = 1
 let g:Lf_WindowHeight = 0.4
 let g:Lf_ShowDevIcons = 0
+let g:Lf_PopupColorscheme = 'solarized'
 let g:Lf_StlColorscheme = 'solarized'
+if g:Lf_StlColorscheme == 'solarized' ||
+            \ (exists('g:colors_name') && stridx(tolower(g:colors_name), 'solarized')) >= 0
+    let g:Lf_StlPalette = {
+                \   'stlName': {
+                \       'guifg': '#fdf6e3',
+                \       'guibg': '#839496',
+                \       'ctermfg': '15',
+                \       'ctermbg': '12',
+                \   },
+                \   'stlCategory': {
+                \       'guifg': '#eee8d5',
+                \       'guibg': '#586e75',
+                \       'ctermfg': '7',
+                \       'ctermbg': '10',
+                \   },
+                \   'stlNameOnlyMode': {
+                \       'guifg': '#eee8d5',
+                \       'guibg': '#2aa198',
+                \       'ctermfg': '8',
+                \       'ctermbg': '6',
+                \   },
+                \   'stlFullPathMode': {
+                \       'guifg': '#eee8d5',
+                \       'guibg': '#b58900',
+                \       'ctermfg': '7',
+                \       'ctermbg': '3',
+                \   },
+                \   'stlFuzzyMode': {
+                \       'guifg': '#002b36',
+                \       'guibg': '#b58900',
+                \       'ctermfg': '8',
+                \       'ctermbg': '3',
+                \   },
+                \   'stlRegexMode': {
+                \       'guifg': '#073642',
+                \       'guibg': '#268bd2',
+                \       'ctermfg': '0',
+                \       'ctermbg': '4',
+                \   },
+                \   'stlCwd': {
+                \       'guifg': '#fdf6e3',
+                \       'guibg': '#586e75',
+                \       'ctermfg': '15',
+                \       'ctermbg': '10',
+                \   },
+                \   'stlBlank': {
+                \       'guifg': 'NONE',
+                \       'guibg': '#073642',
+                \       'ctermfg': 'NONE',
+                \       'ctermbg': '0',
+                \   },
+                \   'stlLineInfo': {
+                \       'guifg': '#fdf6e3',
+                \       'guibg': '#586e75',
+                \       'ctermfg': '15',
+                \       'ctermbg': '10',
+                \   },
+                \   'stlTotal': {
+                \       'guifg': '#fdf6e3',
+                \       'guibg': '#839496',
+                \       'ctermfg': '15',
+                \       'ctermbg': '12',
+                \   }
+                \ }
+
+    if &background == 'light'
+        let g:Lf_StlPalette.stlBlank = {
+                    \     'guifg': 'NONE',
+                    \     'guibg': '#eee8d5',
+                    \     'ctermfg': 'NONE',
+                    \     'ctermbg': '7',
+                    \ }
+    endif
+endif
+
 let g:Lf_NormalMap = {
             \ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
             \ "Colorscheme": [["<ESC>", ':exec g:Lf_py "colorschemeExplManager.quit()"<CR>']]
